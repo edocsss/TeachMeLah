@@ -1,0 +1,463 @@
+/* GLOBAL */
+html, body {
+    color: #555555;
+}
+
+/* MAIN COLOR: #e74c3c */
+
+.button-brand-primary,
+.button-brand-primary.activated {
+    background-color: #e74c3c;
+    border: none;
+    color: #FFFFFF;
+}
+
+.button-brand-primary:hover,
+.button-brand-primary:active {
+    background-color: #c0392b;
+    color: #FFFFFF;
+}
+
+.button-brand-primary:active {
+    background-color: #c0392b;
+}
+
+.button.button-light {
+    border-color: #dddddd;
+}
+
+.bar.bar-positive {
+    background-color: #e74c3c;
+    border: none;
+}
+
+.tabs-positive > .tabs,
+.tabs-striped.tabs-positive .tabs {
+    background-color: #e74c3c;
+    border: none;
+}
+
+.bar.bar-positive .item-input-wrapper {
+    background-color: #FCFCFC;
+}
+
+.item h1:last-child,
+.item h2:last-child,
+.item h3:last-child,
+.item h4:last-child,
+.item h5:last-child,
+.item h6:last-child {
+    margin-bottom: 4px;
+}
+
+.item,
+.item h1,
+.item h2,
+.item h3,
+.item h4,
+.item h5,
+.item h6,
+.item-content,
+.item-content h1,
+.item-content h2,
+.item-content h3,
+.item-content h4,
+.item-content h5,
+.item-content h6 {
+    overflow: visible;
+}
+
+
+
+/* FONT FACE */
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../fonts/BebasNeue.otf') format("opentype");
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: #555555;
+}
+
+
+
+/* UTILITY */
+.row-xs-margin-top {
+    margin-top: 10px !important;
+}
+
+.row-sm-margin-top {
+    margin-top: 10px !important;
+}
+
+.row-md-margin-top {
+    margin-top: 15px !important;
+}
+
+.row-lg-margin-top {
+    margin-top: 30px !important;
+}
+
+.row-xl-margin-top {
+    margin-top: 50px !important;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.normal-font-weight {
+    font-weight: normal;
+}
+
+
+
+
+/* FORM ERROR HANDLING */
+.has-error {
+    border-bottom: 2px solid #F44336;
+}
+
+.error-container {
+    margin: 5px 0;
+}
+
+.error-container:last-child {
+    margin: 5px 0;
+}
+
+.error {
+    padding: 5px 12px;
+    padding-left: 0;
+    margin-bottom: 5px;
+}
+
+.error i {
+    font-size: 24px;
+    color: #008080;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+
+
+
+#row-home-logo {
+    height: 50%;
+}
+
+#row-home-logo .col {
+    text-align: center;
+}
+
+.home-logo {
+    width: 200px;
+    height: auto;
+}
+
+#brand-text-row {
+    font-family: BebasNeue;
+    justify-content: center;
+}
+
+.brand-header-text {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.brand-green {
+    color: #008080;
+}
+
+.brand-black {
+    color: #333333;
+}
+
+#home-content button {
+    width: 100%;
+}
+
+
+
+.register-section-title-row h5 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.register-section-list {
+    margin-top: 0;
+}
+
+#register-content button {
+    width: 100%;
+}
+
+#register-button-row {
+    margin-bottom: 50px !important;
+}
+
+
+
+
+#login-content button {
+    width: 100%;
+}
+
+
+
+.location-list-img {
+    width: 100%;
+    height: auto;
+}
+
+.location-list-image-item {
+    padding: 0;
+    border: none;
+}
+
+.location-list-image-item:hover {
+    cursor: pointer;
+}
+
+#location-list .item:nth-child(even) {
+    border: none;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+#location-list .item:nth-child(even) h3 {
+    font-size: 20px;
+}
+
+.availabe-guides-container {
+    text-align: right;
+}
+
+.number-tour-guides {
+    color: #888888;
+}
+
+
+
+
+.tour-guide-filter-row {
+    padding: 0;
+}
+
+.tour-guide-filter-row > .col {
+    text-align: center;
+    padding: 0;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+.tour-guide-filter-row > .col:first-child {
+    border-right: 1px solid #DDDDDD;
+}
+
+.tour-guide-price-range-filter {
+    width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.tour-guide-price-filter-row {
+    padding-bottom: 0;
+}
+
+.tour-guide-price-filter-row .col {
+    padding-bottom: 0;
+}
+
+.tour-guide-price-filter-row .col h4 {
+    margin-bottom: 0;
+}
+
+.tour-guide-availability-filter:hover {
+    cursor: pointer;
+}
+
+.profile-picture-img {
+    max-width: 60px !important;
+    max-height: 60px !important;
+    top: 10px !important;
+}
+
+#tour-guide-list .item-avatar {
+    padding-left: 90px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#tour-guide-list .item-avatar:hover {
+    cursor: pointer;
+}
+
+
+
+.tour-guide-profile-picture {
+    width: 200px;
+    height: auto;
+}
+
+#tour-guide-name {
+    margin-bottom: 0;
+}
+
+#tour-guide-tagline {
+    margin-top: 3px;
+}
+
+#tour-guide-location {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#tour-guide-contact {
+    margin-top: 3px;
+}
+
+#tour-guide-details-content button {
+    width: 100%;
+}
+
+.tour-guide-small-details {
+    color: #888888 !important;
+}
+
+
+
+
+
+#ListAccepted{
+  margin-top: 50px;
+}
+
+#TabBottom{
+  margin-top: 90%;
+
+}
+
+.listProfile li{
+  display: inline;
+}
+
+.rightPart{
+  margin-left: 70%;
+}
+
+.request-list .item-avatar .item-content {
+    padding-left: 90px;
+}
+
+.listProfilePicture{
+  max-width: 60px !important;
+  max-height: 60px !important;
+  top: 6px !important;
+}
+
+h2 .idListName{
+  margin-left: 20px;
+}
+
+
+
+
+.request-list .item:first-child,
+.request-list .item-avatar.item-complex:first-child {
+    border-top: none !important;
+}
+
+
+
+
+
+.request-booking-tour-guide-profpic {
+    width: 70px;
+    height: auto;
+}
+
+#request-booking-tourguide-name {
+    margin-bottom: 0;
+}
+
+#request-booking-location-price {
+    margin-top: 4px;
+}
+
+.tour-guide-details-row .col.col-67 {
+    padding-left: 15px;
+}
+
+.request-booking-section-title-row h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.request-booking-date-col button,
+.request-booking-time-col button {
+    width: 49%;
+}
+
+.request-booking-delete-date-icon {
+    font-size: 28px;
+}
+
+.request-booking-delete-date-icon:hover {
+    cursor: pointer;
+}
+
+.request-booking-add-date-row button {
+    width: 100%;
+}
+
+#request-booking-button-row button {
+    width: 100%;
+}
+
+
+
+
+
+#request-details-content #tourist-name {
+    margin-bottom: 0
+}
+
+#request-details-content #tourist-contact {
+    margin-top: 3px;
+}
+
+#request-details-total-cost-row h4 {
+    margin-bottom: 0;
+}
+
+#request-details-datetime-row .list-inset {
+    margin: 0;
+}
+
+#request-details-date-time h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#request-details-button-row button {
+    width: 100%;
+}

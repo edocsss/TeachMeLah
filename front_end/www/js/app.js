@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', [
+angular.module('TeachMeLah', [
   'ionic',
   'ngWebSocket'
 ])
@@ -35,12 +35,30 @@ angular.module('starter', [
   $stateProvider
 
   // setup an abstract state for the tabs directive
+  .state('home', {
+    url: '/',
+    templateUrl: 'templates/home.html',
+    controller: 'HomeController',
+    controllerAs: 'homeController'
+  })
+  .state('login', {
+    url: '/login',
+    templateUrl: 'templates/login.html',
+    controller: 'LoginController',
+    controllerAs: 'loginController'
+  })
+  .state('register', {
+    url: '/register',
+    templateUrl: 'templates/register.html',
+    controller: 'RegisterController',
+    controllerAs: 'registerController'
+  })
   .state('tab', {
     url: '/',
     templateUrl: 'templates/tabs.html'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/login');
 
 });

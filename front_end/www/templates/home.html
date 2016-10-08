@@ -1,0 +1,30 @@
+<ion-view>
+    <ion-content id="home-content">
+        <div class="row row-center row-lg-margin-top" id="row-home-logo">
+            <div class="col col-100">
+                <img src="img/logo/brand_logo.png" class="home-logo">
+            </div>
+        </div>
+
+        <div class="row row-center" id="brand-text-row">
+            <img src="img/logo/brand_text.png" class="brand-text-img">
+        </div>
+
+        <div class="row row-center row-xl-margin-top" id="row-login-button-home">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-brand-primary" ng-click="homeController.goToLogin()">
+                    Login
+                </button>
+            </div>
+            </div>
+        </div>
+
+        <div class="row row-center row-medium-margin-top" id="row-register-button-home">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-light" ng-click="homeController.goToRegister()">
+                    Register
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

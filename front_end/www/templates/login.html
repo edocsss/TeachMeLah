@@ -1,0 +1,29 @@
+<ion-view view-title="Login">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="login-content">
+        <form name="loginForm" novalidate>
+            <div class="list">
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Email Address</span>
+                    <input type="email" name="email" placeholder="Email Address" ng-model="loginController.user.email" required>
+                </label>
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Password</span>
+                    <input type="password" placeholder="Password" ng-model="loginController.user.password" required>
+                </label>
+            </div>
+
+            <div class="row">
+                <div class="col col-offset-10 col-80">
+                    <button class="button button-brand-primary" ng-click="loginController.loginUser()">
+                        Login
+                    </button>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>
