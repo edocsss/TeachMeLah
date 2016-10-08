@@ -62,13 +62,14 @@ angular.module('TeachMeLah').controller('TutorRequestListController', function (
     };
     $http(httpOptions).then(function success (response) {
       vm.requestList = response.data;
+      getRequestList();
       if(response.statusCode == 200){
         console.log("it is updated");
       }
     }, function error (response) {
       console.log(response);
     });
-    getRequestList();
+
   };
   function deleteBufferFromList(item,arrayPassed){
     var removeIndex = -1;
