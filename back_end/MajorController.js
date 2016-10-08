@@ -22,32 +22,37 @@ function initDummyData () {
         if (docs.length <= 0) {
             Majors.insert({
                 name: 'Computer Science',
-                icon: ''
+                icon: 'ion-code'
             });
 
             Majors.insert({
-                name: 'Computer Engineering',
-                icon: ''
+                name: 'Sports Science',
+                icon: 'ion-ios-basketball'
             });
 
             Majors.insert({
                 name: 'Mechanical Engineering',
-                icon: ''
+                icon: 'ion-gear-a'
+            });
+
+            Majors.insert({
+                name: 'Aerospace Engineering',
+                icon: 'ion-plane'
             });
 
             Majors.insert({
                 name: 'Electrical and Electronics Engineering',
-                icon: ''
+                icon: 'ion-battery-charging'
             });
 
             Majors.insert({
                 name: 'Business',
-                icon: ''
+                icon: 'ion-briefcase'
             });
 
             Majors.insert({
                 name: 'Finance',
-                icon: ''
+                icon: 'ion-arrow-graph-up-right'
             });
         }
     });

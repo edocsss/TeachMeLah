@@ -61,11 +61,15 @@ angular.module('TeachMeLah', [
   })
   .state('tuteeHome.tuteeMajorList', {
     url: '/tutee/majorList',
-    templateUrl: 'templates/tutee-major-list.html',
-    controller: 'TuteeMajorListController',
-    controllerAs: 'tuteeMajorListController'
+    views: {
+      'course-list-tab': {
+        templateUrl: 'templates/tutee-major-list.html',
+        controller: 'TuteeMajorListController',
+        controllerAs: 'tuteeMajorListController'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tutee/majorList');
+  $urlRouterProvider.otherwise('/login');
 });

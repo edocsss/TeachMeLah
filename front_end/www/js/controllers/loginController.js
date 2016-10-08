@@ -16,6 +16,11 @@ angular.module('TeachMeLah').controller('LoginController', function ($http, URL,
             }
         };
 
+        // For testing
+        $state.go('tuteeHome.tuteeMajorList');
+        return;
+
+
         $http(httpOptions).then(function success (response) {
             var userType = response.data.type;
             localStorage.setItem('userDetails', { email: email });

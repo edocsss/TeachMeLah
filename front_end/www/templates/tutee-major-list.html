@@ -1,0 +1,26 @@
+<ion-view view-title="Majors">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="tour-guide-list-content">
+        <div class="list" id="major-list">
+            <span
+                class="item major-list-item"
+                ng-repeat="major in tuteeMajorListController.majorList"
+                ui-sref="">
+
+                <div class="row">
+                    <div class="col-10">
+                        <i class="icon {{ major.icon }} major-icon"></i>
+                    </div>
+
+                    <div class="col-90">
+                        <h2><b>{{ major.name }}</b></h2>
+                    </div>
+                </div>
+
+            </span>
+        </div>
+    </ion-content>
+</ion-view>
