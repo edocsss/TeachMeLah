@@ -13,6 +13,8 @@ angular.module('TeachMeLah').constant('URL', (function () {
         COURSE_LIST_URL: API_URL + '/course',
         TUTOR_DETAILS_URL: API_URL + '/tutor/details',
         REQUEST_LIST_TUTOR_URL: API_URL + '/getListRequestTutor',
+        REQUEST_LIST_TUTEE_URL: API_URL + "/getListRequestTutee",
+        UPDATE_REQUEST_TUTOR: API_URL + "/updateRequest",
         CANCEL_TUTOR: API_URL+"/cancelTutor",
         CREATE_REQUEST_URL: API_URL + '/addRequest',
         REQUEST_TOKEN: API_URL+"/clientToken",

@@ -1,0 +1,71 @@
+<ion-view view-title="tutor-requests">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content id="tutor-requests-content">
+    <div class="list">
+      <div class="item item-divider">
+        Accepted
+      </div>
+
+      <div id="list_bottom_accepted">
+        <ion-list ng-show="requestAccepted.length > 0">
+          <ion-item ng-repeat="item in requestAccepted" class="item-thumbnail-left">
+            <img class="tutee-request-list-avatar" ng-src="{{item.img}}">
+            <div class="row tutee-request-list-details">
+              <div class="col col-100">
+                <h2 class="tutee-request-list-tutor-email"><b>{{ item.participants.emailTutor }}</b></h2>
+                <p class="tutee-request-list-total-price">Total Price: ${{ item.price }}</p>
+                <p class="tutee-request-list-major">{{ item.course | capitalizeEachWord }} | {{ item.topic | capitalizeEachWord }}</p>
+                <p class="tutee-request-list-course"></p>
+              </div>
+            </div>
+            <ion-option-button class="button-assertive" ng-click="deleteFromAccepted(item)">
+              Delete
+            </ion-option-button>
+          </ion-item>
+        </ion-list>
+
+        <div class="row" style="text-align: center;" ng-show="requestAccepted.length <= 0">
+          <div class="col col-100">
+            <h5>No accepted request!</h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="item item-divider">
+        Pending
+      </div>
+
+      <div id="list_bottom_pending">
+        <ion-list can-swipe=true ng-show="requestUnAccepted.length > 0">
+          <ion-item ng-repeat="item in requestUnAccepted" class="item-thumbnail-left">
+            <img class="tutee-request-list-avatar" ng-src="{{item.img}}">
+            <div class="row tutee-request-list-details">
+              <div class="col col-100">
+                <h2 class="tutee-request-list-tutor-email"><b>{{ item.participants.emailTutor }}</b></h2>
+                <p class="tutee-request-list-total-price">Total Price: ${{ item.price }}</p>
+                <p class="tutee-request-list-major">{{ item.course | capitalizeEachWord }} | {{ item.topic | capitalizeEachWord }}</p>
+                <p class="tutee-request-list-course"></p>
+              </div>
+            </div>
+
+            <ion-option-button class="button-assertive" ng-click="cancellingRequestToTutee(item)">
+              Decline
+            </ion-option-button>
+            <ion-option-button class="button-positive" ng-click="acceptRequestToTutee(item)">
+              Accept
+            </ion-option-button>
+          </ion-item>
+        </ion-list>
+
+        <div class="row" style="text-align: center;" ng-show="requestUnAccepted.length <= 0">
+          <div class="col col-100">
+            <h5>No pending request!</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

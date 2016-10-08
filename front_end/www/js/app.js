@@ -94,15 +94,11 @@ angular.module('TeachMeLah', [
           }
         }
       })
-      .state('tuteeHome.requestList', {
-        url: '/tutee/requestList',
-        views: {
-          'request-list-tab': {
-            templateUrl: 'templates/tutee-request-list.html',
-            controller: 'TuteeRequestListController',
-            controllerAs: 'tuteeRequestListController'
-          }
-        }
+      .state('tutorHome', {
+        url: '/tutorHome',
+        templateUrl: 'templates/tutor-request-list.html',
+        controller: 'TutorRequestListController',
+        controllerAs: 'tutorRequestListController'
       })
       .state('payment', {
         url: '/payment',

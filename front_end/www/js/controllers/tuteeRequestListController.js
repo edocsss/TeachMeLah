@@ -52,6 +52,7 @@ angular.module('TeachMeLah').controller('TuteeRequestListController', function (
     deleteFromList(item,$scope.requestUnAccepted );
   };
 
+
   $scope.payTutor = function(item){
     //state go to payment
     $state.go("payment");

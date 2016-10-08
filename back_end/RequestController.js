@@ -5,10 +5,11 @@ var Requests = db.collection('requests');
 module.exports = {
     addRequest: addRequest,
     getListTutor : getListTutor,
-    getListTutee : getListTutor,
+    getListTutee : getListTuteeing,
     cancelTutor  :cancellingTutorFromTutee,
     getRequestDetailsById: getRequestDetailsById,
-    initDummyData : initDummyData
+    initDummyData : initDummyData,
+    updateRequestDate : updateRequestData
 };
 
 function addRequest(jsonData,res){
@@ -48,7 +49,9 @@ function getListTutor(req,res){
 }
 
 
-function getListTutee(req,res){
+
+function getListTuteeing(req,res){
+    console.log("reqBody",req);
     var emailTutor = req["emailTutor"];
     Requests.find({"participants.emailTutor" : emailTutor}).toArray(function(err,docs){
         if(docs.length > 0){
@@ -111,7 +114,44 @@ function initDummyData(){
                 endTime : new Date(2016,11,10,13,30),
                 accepted : true
             });
+
+            Requests.insert({
+                participants : {
+                    emailTutor: 'sujono@gmail.com',
+                    emailTutee: 'edward@gmail.com'
+                },
+                price: 10,
+                course : "computer science",
+                topic : "computer networrks",
+                startTime : new Date(2016,11,10,12,30),
+                endTime : new Date(2016,11,10,13,30),
+                accepted : false
+            });
+
+
+            Requests.insert({
+                participants : {
+                    emailTutor: 'sujono@gmail.com',
+                    emailTutee: 'edssss@gmail.com'
+                },
+                price: 10,
+                course : "computer science",
+                topic : "computer networrks",
+                startTime : new Date(2016,11,10,12,30),
+                endTime : new Date(2016,11,10,13,30),
+                accepted : true
+            });
+
+
+
         }
     }
     );
+}
+
+
+function updateRequestData(req,res){
+    Requests.update(req,{$set : {accepted: true}});
+    res.status(200);
+    res.json({"status":"OK"});
 }

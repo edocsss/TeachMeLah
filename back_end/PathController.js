@@ -36,6 +36,15 @@ module.exports = {
             var jsonRetrieved = req.body;
             requestController.getListTutor(jsonRetrieved, res);
         });
+         router.route("/getListRequestTutee").post(function(req,res){
+            var jsonRetrieved= req.body;
+            requestController.getListTutee(jsonRetrieved,res);
+        });
+
+        router.route("/updateRequest").post(function(req,res){
+            var jsonRetreived = req.body;
+            requestController.updateRequestDate(jsonRetreived,res);
+        });
 
         router.route('/course').post(function (req, res) {
             console.log('Getting course list by major...');

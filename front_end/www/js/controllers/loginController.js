@@ -31,7 +31,7 @@ angular.module('TeachMeLah').controller('LoginController', function ($http, URL,
         };
 
         // For testing
-        $state.go('tuteeHome.tuteeMajorList');
+        $state.go('tutorHome');
         return;
 
 
