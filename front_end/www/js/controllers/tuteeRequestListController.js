@@ -27,7 +27,7 @@ angular.module('TeachMeLah').controller('TuteeRequestListController', function (
         var obj = vm.requestList[i];
         //need to divide the accepted and unaccepted
         console.log("accepted",obj.accepted);
-        var profilePictureSrc = "../../img/profile_picture/";
+        var profilePictureSrc = "../../img/profile_pictures/";
         obj.img = profilePictureSrc+Math.floor(Math.random()*3+2)+".png";
         if(obj.accepted == false){
           $scope.requestUnAccepted.push(obj);
@@ -46,14 +46,14 @@ angular.module('TeachMeLah').controller('TuteeRequestListController', function (
   getRequestList();
 
   $scope.cancellingRequestToTutor= function(item){
-    deleteFromList(item,$scope.requestAccepted );
+    deleteFromList(item,$scope.requestUnAccepted );
   };
 
   $scope.payTutor = function(item){
     //state go to payment
     $state.go("payment");
     //then delete it from the list
-    deleteFromList(item,$scope.requestUnAccepted);
+    deleteFromList(item,$scope.requestAccepted);
   };
 
   function deleteFromList(item,arrayPassed){
