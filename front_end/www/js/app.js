@@ -9,15 +9,10 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('TeachMeLah', [
     'ionic',
-<<<<<<< 8cbf4130a7bbfb46fa8ebbb96a46b3d9f0ae7db4
-    'ngWebSocket',
-    'ion-datetime-picker'
-=======
-    // 'ngWebSocket',
+    'ion-datetime-picker',
     'btford.socket-io',
     'ion-datetime-picker',
     'ionic.contrib.frostedGlass'
->>>>>>> Chat is working now
   ])
 
   .run(function($ionicPlatform, ChatFactory) {
@@ -114,6 +109,14 @@ angular.module('TeachMeLah', [
         controller: 'PaymentController',
         controllerAs: 'paymentController'
       })
+      }
+    })
+    .state('tuteeRequestDetails', {
+      url: '/tutee/request/details/:requestId',
+      templateUrl: 'templates/tutee-request-details.html',
+      controller: 'TuteeRequestDetailsController',
+      controllerAs: 'tuteeRequestDetailsController'
+    })
     .state('chatRoom', {
       url: '/chat/:senderEmail/:receiverEmail',
       templateUrl: 'templates/chat-room.html',

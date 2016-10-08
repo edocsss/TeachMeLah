@@ -588,3 +588,18 @@ img.tutee-request-list-avatar {
     margin: 0;
     font-size: .875rem;
 }
+
+
+
+
+
+
+
+#request-details-content h5 {
+    margin-top: 0;
+    margin-bottom: 2px;
+}
+
+#request-details-datetime-row {
+    margin-top: -10px;
+}

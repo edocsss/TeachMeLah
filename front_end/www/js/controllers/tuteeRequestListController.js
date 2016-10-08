@@ -1,26 +1,29 @@
 'use strict';
 
 angular.module('TeachMeLah').controller('TuteeRequestListController', function ($scope,$state, $http, URL) {
-  var vm = this;
-  $scope.requestList = null;
-  $scope.requestAccepted = [];
-  $scope.requestUnAccepted = [];
+    var vm = this;
+    $scope.requestList = null;
+    $scope.requestAccepted = [];
+    $scope.requestUnAccepted = [];
 
-  function getRequestList() {
-    //TUTEE WILL GET LIST OF TUTOR
-    //just for testsing
-    var user = {'email':'sujono@gmail.com'};
-    localStorage.setItem('userDetails', JSON.stringify(user));
-    var emailUser = JSON.parse(localStorage.getItem("userDetails"));
-    console.log(emailUser.email);
-    var httpOptions = {
-      method: 'POST',
-      url: URL.REQUEST_LIST_TUTOR_URL,
-      data: {
-        emailTutee: emailUser.email
-      }
+    $scope.goToRequestDetails = function (requestId) {
+      $state.go('tuteeRequestDetails', {
+        requestId: requestId
+      })
     };
-    $http(httpOptions).then(function success (response) {
+
+    function getRequestList() {
+      //TUTEE WILL GET LIST OF TUTOR
+      //just for testsing
+      var emailUser = JSON.parse(localStorage.getItem("userDetails"));
+      var httpOptions = {
+        method: 'POST',
+        url: URL.REQUEST_LIST_TUTOR_URL,
+        data: {
+          emailTutee: emailUser.email
+        }
+      }
+      $http(httpOptions).then(function success (response) {
       vm.requestList = response.data;
       console.log("requestList",vm.requestList);
       for(var i = 0 ; i < vm.requestList.length ; i++){
@@ -83,8 +86,3 @@ angular.module('TeachMeLah').controller('TuteeRequestListController', function (
   }
 
 });
-
-
-
-
-

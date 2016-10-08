@@ -7,6 +7,7 @@ module.exports = {
     getListTutor : getListTutor,
     getListTutee : getListTutor,
     cancelTutor  :cancellingTutorFromTutee,
+    getRequestDetailsById: getRequestDetailsById,
     initDummyData : initDummyData
 };
 
@@ -28,9 +29,10 @@ function getListTutor(req,res){
              "price" : "12",
              "course" : "Computer Network",
              "topic" : "wow",
-             "startTime" : "Aug 9,2016",
-             "endTime" : "Aug 9, 2016",
-             "accepted": false
+             "startTime" : "19:20",
+             "endTime" : "20:20",
+             "accepted": false,
+             "date": "19-Septermber-2016"
         }
     * */
     var emailTutee = req["emailTutee"];
@@ -68,6 +70,16 @@ function cancellingTutorFromTutee(req,res){
 
     res.status(200);
     res.json({"delete":"OK"});
+}
+
+function getRequestDetailsById(reqBody, res) {
+    var requestId = reqBody.requestId;
+    Requests.findOne({
+        _id: db.ObjectId(requestId)
+    }, function (err, doc) {
+        res.status(200);
+        res.json(doc);
+    });
 }
 
 function initDummyData(){

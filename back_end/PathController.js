@@ -68,5 +68,10 @@ module.exports = {
             console.log('Getting message history..');
             chatController.getChatHistory(req.body, res);
         });
+
+        router.route('/request/details').post(function (req, res) {
+            console.log('Getting request details by ID..');
+            requestController.getRequestDetailsById(req.body, res);
+        });
     }
 };

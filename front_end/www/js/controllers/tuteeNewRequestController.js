@@ -72,7 +72,8 @@ angular.module('TeachMeLah').controller('TuteeNewRequestController', function ($
                 course: vm.tutorDetails.major,
                 topic: $stateParams.courseName,
                 startTime: vm.requestDetails.startTime,
-                endTime: vm.requestDetails.endTime
+                endTime: vm.requestDetails.endTime,
+                date: vm.requestDetails.date
             }
         };
 
