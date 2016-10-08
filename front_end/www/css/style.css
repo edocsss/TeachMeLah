@@ -67,6 +67,23 @@ html, body {
     overflow: visible;
 }
 
+input[type=search],
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=tel],
+input[type=color] {
+    height: 25px;
+}
+
 
 
 /* FONT FACE */
@@ -201,8 +218,8 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: 0;
 }
 
-.register-section-list {
-    margin-top: 0;
+#register-content .list {
+    margin-bottom: 0;
 }
 
 #register-content button {

@@ -1,0 +1,129 @@
+<ion-view view-title="Register User">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="register-content">
+        <div class="list register-section-list">
+            <div class="item item-divider">
+                Personal Details
+            </div>
+
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Full Name</span>
+                <input type="text" name="fullName" placeholder="Full Name" ng-model="registerController.newUser.fullName">
+            </label>
+
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Phone Number</span>
+                <input type="text" placeholder="Phone Number" ng-model="registerController.newUser.phone">
+            </label>
+
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Email Address</span>
+                <input type="email" placeholder="Email Address" ng-model="registerController.newUser.email">
+            </label>
+
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Password</span>
+                <input type="password" placeholder="Password" ng-model="registerController.newUser.password">
+            </label>
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    User Type
+                </div>
+
+                <select ng-model="registerController.newUser.type">
+                    <option value="tutee" selected>Tutee</option>
+                    <option value="tutor">Tutor</option>
+                </select>
+            </label>
+        </div>
+
+        <span ng-show="registerController.newUser.type === 'tutor'">
+            <div class="item item-divider">
+                Tutor Details
+            </div>
+
+            <div class="list register-section-list">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Major
+                    </div>
+
+                    <select ng-model="registerController.newUser.major">
+                        <option value="{{ major.name }}" ng-repeat="major in majorList">{{ major.name | capitalizeEachWord }}</option>
+                    </select>
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        GPA
+                    </div>
+
+                    <select ng-model="registerController.newUser.gpaCategory">
+                        <option value="{{ gpaCategory }}" ng-repeat="gpaCategory in gpaCategoryList">{{ gpaCategory }}</option>
+                    </select>
+                </label>
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Tagline</span>
+                    <input type="text" placeholder="Tagline" ng-model="registerController.newUser.tagline">
+                </label>
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Description</span>
+                    <textarea row="10" placeholder="Description" ng-model="registerController.newUser.description"></textarea>
+                </label>
+
+                <label class="item item-input item-floating-label">
+                    <span class="input-label">Hourly Rate</span>
+                    <input type="number" placeholder="Hourly Rate (S$/hour)" ng-model="registerController.newUser.hourlyRate">
+                </label>
+            </div>
+
+            <div class="row register-section-title-row">
+                <div class="col">
+                    <h5>Weekly Schedule</h5>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col col-50">
+                    <button class="button button-light" ion-datetime-picker date monday-first ng-model="registerController.newUser.availability.start">
+                        <span ng-show="!registerController.newUser.availability.start">
+                            <i class="icon ion-ios-calendar-outline"></i>
+                            Start Date
+                        </span>
+
+                        <span ng-show="registerController.newUser.availability.start">
+                            {{ registerController.newUser.availability.start | date: "d MMMM y" }}
+                        </span>
+                    </button>
+                </div>
+
+                <div class="col col-50">
+                    <button class="button button-light" ion-datetime-picker date monday-first ng-model="registerController.newUser.availability.end">
+                        <span ng-show="!registerController.newUser.availability.end">
+                            <i class="icon ion-ios-calendar"></i>
+                            End Date
+                        </span>
+
+                        <span ng-show="registerController.newUser.availability.end">
+                            {{ registerController.newUser.availability.end | date: "d MMMM y" }}
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </span>
+
+        <div class="row register-section-title-row" id="register-button-row">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-brand-primary" ng-click="registerUser()">
+                    Register
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
