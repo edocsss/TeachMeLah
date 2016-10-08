@@ -15,9 +15,9 @@ angular.module('TeachMeLah').constant('URL', (function () {
         REQUEST_LIST_TUTOR_URL: API_URL + '/getListRequestTutor',
         CANCEL_TUTOR: API_URL+"/cancelTutor",
         CREATE_REQUEST_URL: API_URL + '/addRequest',
-      REQUEST_TOKEN: API_URL+"/clientToken",
-      CREATE_TRANSACTION : API_URL+"/createTranasaction"
+        REQUEST_TOKEN: API_URL+"/clientToken",
+        CREATE_TRANSACTION : API_URL+"/createTranasaction"
     };
 
 
-}));
+})());
