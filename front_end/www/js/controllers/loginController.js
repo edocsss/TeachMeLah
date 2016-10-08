@@ -30,11 +30,6 @@ angular.module('TeachMeLah').controller('LoginController', function ($http, URL,
             }
         };
 
-        // For testing
-        // $state.go('tutorHome');
-        // return;
-
-
         $http(httpOptions).then(function success (response) {
             var userType = response.data.type;
             localStorage.setItem('userDetails', JSON.stringify({ email: email }));

@@ -142,8 +142,6 @@ function initDummyData(){
                 accepted : true
             });
 
-
-
         }
     }
     );

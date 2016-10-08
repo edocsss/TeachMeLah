@@ -36,6 +36,7 @@ function generateToken(res){
 
 function checkOutTransaction(req,res){
     var nonceFromTheClient = req.body.nonce;
+    var price = req.body.price;
     //price set up to 10.00
     gateway.transaction.sale({
         amount: "10.00",

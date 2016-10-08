@@ -6,18 +6,23 @@
       <div class="list">
         <form id="checkout-form" action="/transaction-endpoint" method="post">
           <div id="error-message"></div>
+          <label class="item item-input" for="card-number">
+            <span class="input-label">Card Number</span>
+            <span class="hosted-field" id="card-number"></span>
+          </label>
 
-          <label for="card-number">Card Number</label>
-          <div class="hosted-field" id="card-number"></div>
+          <label for="cvv" class="item item-input">
+            <span class="input-label">CVV</span>
+            <span class="hosted-field" id="cvv"></span>
+          </label>
 
-          <label for="cvv">CVV</label>
-          <div class="hosted-field" id="cvv"></div>
-
-          <label for="expiration-date">Expiration Date</label>
-          <div class="hosted-field" id="expiration-date"></div>
+          <label for="expiration-date" class="item item-input">
+            <span class="input-label">Expiration Date</span>
+            <span class="hosted-field" id="expiration-date"></span>
+          </label>
 
           <input type="hidden" name="payment-method-nonce">
-          <input type="submit" value="Pay $10" disabled>
+          <center><input type="submit" value="Pay" disabled class="button button-assertive" style="width: 300px;"></center>
         </form>
       </div>
     </ion-content>

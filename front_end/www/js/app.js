@@ -74,6 +74,16 @@ angular.module('TeachMeLah', [
           }
         }
       })
+      .state('tuteeHome.requestList', {
+        url: '/tutee/requestList',
+        views: {
+          'request-list-tab': {
+            templateUrl: 'templates/tutee-request-list.html',
+            controller: 'TuteeRequestListController',
+            controllerAs: 'tuteeRequestListController'
+          }
+        }
+      })
       .state('tuteeHome.tuteeCourseList', {
         url: '/tutee/courseList/:majorName',
         views: {
@@ -147,6 +157,6 @@ angular.module('TeachMeLah', [
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('payment');
   });
 
