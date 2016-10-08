@@ -1,0 +1,48 @@
+<ion-view view-title="tutor-requests">
+  <ion-nav-bar class="bar-positive">
+    <ion-nav-back-button></ion-nav-back-button>
+  </ion-nav-bar>
+
+  <ion-content id="tutor-requests-content"  ng-controller="TuteeRequestListController">
+    <div class="list">
+      <div class="item item-divider">
+        Accepted
+      </div>
+      <div id="list_bottom_accepted">
+        <ion-list can-swipe=true>
+          <ion-item ng-repeat="item in requestAccepted" class="item-thumbnail-left">
+            <img ng-src="{{item.img}}">
+            <h2>{{item.participants.emailTutor}}</h2>
+            <p>Price: {{item.price}}</p>
+            <p>Course: {{item.topic}}, Topic: {{item.course}}</p>
+            <ion-option-button class="button-assertive" >
+              Delete
+            </ion-option-button>
+            <!--FINISH MEANS PAY-->
+            <ion-option-button class="button-positive" ng-click="payTutor(item)">
+              Finish
+            </ion-option-button>
+
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="item item-divider">
+        Pending
+      </div>
+      <div id="list_bottom_pending">
+        <ion-list can-swipe=true >
+          <ion-item ng-repeat="item in requestUnAccepted" class="item-thumbnail-left">
+            <img ng-src="{{item.img}}">
+            <h2>{{item.participants.emailTutor}}</h2>
+            <p>Price: {{item.price}}</p>
+            <p>Course: {{item.topic}}</p>
+            <p>Topic: {{item.course}}</p>
+            <ion-option-button class="button-assertive" ng-click="cancellingRequestToTutor(item)">
+              Cancel
+            </ion-option-button>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

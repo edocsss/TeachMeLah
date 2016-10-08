@@ -29,11 +29,9 @@ module.exports = {
         });
 
         router.route("/getListRequestTutor").post(function (req, res) {
-            console.log("asking for list of tutor from tutee");
             var jsonRetrieved = req.body;
             requestController.getListTutor(jsonRetrieved, res);
         });
-
         router.route('/course').post(function (req, res) {
             console.log('Getting course list by major...');
             courseController.getCourseListByMajor(req.body, res);
@@ -43,5 +41,10 @@ module.exports = {
             console.log('Getting tutor list by major...');
             tutorController.getTutorListByMajor(req.body, res);
         })
+        router.route("/cancelTutor").post(function(req,res){
+            console.log("cancelling tutor");
+            requestController.cancelTutor(req,res);
+        });
+
     }
 };

@@ -6,6 +6,7 @@ module.exports = {
     addRequest: addRequest,
     getListTutor : getListTutor,
     getListTutee : getListTutor,
+    cancelTutor  :cancellingTutorFromTutee,
     initDummyData : initDummyData
 };
 
@@ -31,6 +32,7 @@ function getListTutor(req,res){
              "endTime" : "Aug 9, 2016"
         }
     * */
+    console.log("request from tutee",req);
     var emailTutee = req["emailTutee"];
     Requests.find({"participants.emailTutee" : emailTutee}).toArray(function(err,docs){
         if(docs.length > 0){
@@ -58,6 +60,14 @@ function getListTutee(req,res){
     });
 }
 
+
+function cancellingTutorFromTutee(req,res){
+    Requests.remove(req);
+    console.log("remove",req+" is removed");
+    res.status(200);
+    res.json({"delete":"OK"});
+}
+
 function initDummyData(){
     Requests.find({}).toArray(function (err, docs) {
         console.log(docs);
@@ -73,6 +83,20 @@ function initDummyData(){
                 startTime : new Date(2016,11,10,12,30),
                 endTime : new Date(2016,11,10,13,30),
                 accepted : false
+            });
+
+
+            Requests.insert({
+                participants : {
+                    emailTutor: 'wow@gmail.com',
+                    emailTutee: 'sujono@gmail.com'
+                },
+                price: 10,
+                course : "computer science",
+                topic : "computer networrks",
+                startTime : new Date(2016,11,10,12,30),
+                endTime : new Date(2016,11,10,13,30),
+                accepted : true
             });
         }
     }

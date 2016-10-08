@@ -12,5 +12,7 @@ angular.module('TeachMeLah').constant('URL', (function () {
         MAJOR_LIST_URL: API_URL + '/major',
         COURSE_LIST_URL: API_URL + '/course',
         TUTOR_LIST_URL: API_URL + '/tutor'
-    };
+        REQUEST_LIST_TUTOR_URL: API_URL + '/getListRequestTutor',
+        CANCEL_TUTOR: API_URL+"/cancelTutor"
+};
 })());
