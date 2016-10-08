@@ -1,0 +1,60 @@
+<ion-view view-title="{{ tutorRequestDetailsController.tuteeDetails.name }}">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="request-details-content">
+        <div class="row row-center row-md-margin-top" id="tutor-profile-picture-row">
+            <div class="col col-100 text-center">
+                <img src="{{ tutorRequestDetailsController.tuteeDetails.profpicURL }}" class="tutor-profile-picture">
+            </div>
+        </div>
+
+        <div class="row row-center">
+            <div class="col col-100 text-center">
+                <h3 id="tutor-name">{{ tutorRequestDetailsController.tuteeDetails.name }}</h3>
+                <h5 id="tutor-contact" class="normal-font-weight">{{ tutorRequestDetailsController.tuteeDetails.email }} | {{ tutorRequestDetailsController.tuteeDetails.contact }}</h5>
+            </div>
+        </div>
+
+        <div class="row row-center" id="request-details-total-cost-row">
+            <div class="col col-100">
+                <h4>Total Cost: <span class="normal-font-weight">${{ tutorRequestDetailsController.requestDetails.price }}</span></h4>
+            </div>
+        </div>
+
+        <div class="row row-center" id="request-details-date-time">
+            <div class="col col-100">
+                <h4>Request Details:</h4>
+            </div>
+        </div>
+
+        <div class="row row-center" id="request-details-datetime-row">
+            <div class="col col-100">
+                <div class="list">
+                    <h5><b>Date:</b> {{ tutorRequestDetailsController.requestDetails.date | date: 'd MMMM y' }}</h5>
+                    <h5><b>Start Time:</b> {{ tutorRequestDetailsController.processTime(tutorRequestDetailsController.requestDetails.startTime) }}</h5>
+                    <h5><b>End Time:</b> {{ tutorRequestDetailsController.processTime(tutorRequestDetailsController.requestDetails.endTime) }}</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-center row-md-margin-top" id="request-details-button-row">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-light" ng-click="tutorRequestDetailsController.goToChatRoom()">Chat!</button>
+            </div>
+        </div>
+
+        <div class="row row-center" id="request-details-button-row">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-positive" ng-show="!tutorRequestDetailsController.requestDetails.accepted" ng-click="tutorRequestDetailsController.acceptBooking()">Accept</button>
+            </div>
+        </div>
+
+        <div class="row row-center" id="request-details-button-row">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-brand-primary" ng-click="tutorRequestDetailsController.deleteBooking(true)">Delete</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

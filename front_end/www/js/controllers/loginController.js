@@ -31,8 +31,8 @@ angular.module('TeachMeLah').controller('LoginController', function ($http, URL,
         };
 
         // For testing
-        $state.go('tutorHome');
-        return;
+        // $state.go('tutorHome');
+        // return;
 
 
         $http(httpOptions).then(function success (response) {

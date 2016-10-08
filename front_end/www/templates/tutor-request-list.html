@@ -1,6 +1,5 @@
-<ion-view view-title="tutor-requests">
+<ion-view view-title="Requests">
   <ion-nav-bar class="bar-positive">
-    <ion-nav-back-button></ion-nav-back-button>
   </ion-nav-bar>
 
   <ion-content id="tutor-requests-content">
@@ -11,7 +10,7 @@
 
       <div id="list_bottom_accepted">
         <ion-list ng-show="requestAccepted.length > 0">
-          <ion-item ng-repeat="item in requestAccepted" class="item-thumbnail-left">
+          <ion-item ng-repeat="item in requestAccepted" class="item-thumbnail-left" ng-click="goToRequestDetails(item._id)">
             <img class="tutee-request-list-avatar" ng-src="{{item.img}}">
             <div class="row tutee-request-list-details">
               <div class="col col-100">
@@ -40,7 +39,7 @@
 
       <div id="list_bottom_pending">
         <ion-list can-swipe=true ng-show="requestUnAccepted.length > 0">
-          <ion-item ng-repeat="item in requestUnAccepted" class="item-thumbnail-left">
+          <ion-item ng-repeat="item in requestUnAccepted" class="item-thumbnail-left" ng-click="goToRequestDetails(item._id)">
             <img class="tutee-request-list-avatar" ng-src="{{item.img}}">
             <div class="row tutee-request-list-details">
               <div class="col col-100">

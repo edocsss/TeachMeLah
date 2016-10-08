@@ -6,14 +6,19 @@ angular.module('TeachMeLah').controller('TutorRequestListController', function (
   $scope.requestAccepted = [];
   $scope.requestUnAccepted = [];
 
+  $scope.goToRequestDetails = function (requestId) {
+      $state.go('tutorRequestDetails', {
+        requestId: requestId
+      })
+    };
+
   function getRequestList() {
     //TUTEE WILL GET LIST OF TUTOR
     //just for testsing
     $scope.requestList = null;
     $scope.requestAccepted = [];
     $scope.requestUnAccepted = [];
-    var user = {'email':'sujono@gmail.com'};
-    localStorage.setItem('userDetails', JSON.stringify(user));
+
     var emailUser = JSON.parse(localStorage.getItem("userDetails"));
     console.log(emailUser.email);
     var httpOptions = {

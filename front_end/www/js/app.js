@@ -99,6 +99,7 @@ angular.module('TeachMeLah', [
         templateUrl: 'templates/tutor-request-list.html',
         controller: 'TutorRequestListController',
         controllerAs: 'tutorRequestListController'
+      })
       .state('tuteeTutorDetails', {
         url: '/tutor/:tutorEmail/:courseName',
         templateUrl: '/templates/tutee-tutor-details.html',
@@ -132,6 +133,12 @@ angular.module('TeachMeLah', [
       templateUrl: 'templates/tutee-request-details.html',
       controller: 'TuteeRequestDetailsController',
       controllerAs: 'tuteeRequestDetailsController'
+    })
+    .state('tutorRequestDetails', {
+      url: '/tutor/request/details/:requestId',
+      templateUrl: 'templates/tutor-request-details.html',
+      controller: 'TutorRequestDetailsController',
+      controllerAs: 'tutorRequestDetailsController'
     })
     .state('chatRoom', {
       url: '/chat/:senderEmail/:receiverEmail',

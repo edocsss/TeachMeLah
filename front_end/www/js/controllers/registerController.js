@@ -70,6 +70,7 @@ angular.module('TeachMeLah').controller('RegisterController', function ($http, U
             contact: vm.newUser.phone,
             type: vm.newUser.type,
             profpicURL: getRandomProfpicURL(),
+            password: vm.newUser.password,
             major: vm.newUser.type === 'tutor' ? vm.newUser.major : null,
             gpaCategory: vm.newUser.type === 'tutor' ? vm.newUser.gpaCategory : null,
             tagline: vm.newUser.type === 'tutor' ? vm.newUser.tagline : null,
