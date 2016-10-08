@@ -8,7 +8,8 @@
 angular.module('TeachMeLah', [
     'ionic',
     'ngWebSocket',
-    'ion-datetime-picker'
+    'ion-datetime-picker',
+    'ionic.contrib.frostedGlass'
   ])
 
   .run(function($ionicPlatform) {
@@ -109,8 +110,13 @@ angular.module('TeachMeLah', [
           controllerAs: 'tuteeRequestListController'
         }
       }
+    })
+    .state('chatRoom', {
+      url: '/chat/:tutorEmail/:tuteeEmail',
+      templateUrl: 'templates/chat-room.html',
+      controller: 'ChatController'
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/');
   });
