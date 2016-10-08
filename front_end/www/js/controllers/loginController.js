@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('LoginController', function ($http) {
+angular.module('TeachMeLah').controller('LoginController', function ($http, URL) {
     var vm = this;
     vm.user = {};
 
@@ -9,7 +9,7 @@ angular.module('TeachMeLah').controller('LoginController', function ($http) {
         var password = vm.user.password;
         var httpOptions = {
             method: 'POST',
-            url: 'http://localhost:5000',
+            url: URL.LOGIN_URL,
             data: {
                 email: email,
                 password: password
