@@ -70,6 +70,7 @@ angular.module('TeachMeLah', [
     }
   })
   .state('tuteeHome.requestList', {
+    url: '/tutee/requestList',
     views: {
       'request-list-tab': {
         templateUrl: 'templates/tutee-request-list.html',

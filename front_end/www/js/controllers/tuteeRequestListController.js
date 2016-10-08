@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('TuteeMajorListController', function ($state, $http, URL) {
+angular.module('TeachMeLah').controller('TuteeRequestListController', function ($state, $http, URL) {
     var vm = this;
     vm.majorList = null;
 
@@ -17,6 +17,4 @@ angular.module('TeachMeLah').controller('TuteeMajorListController', function ($s
             console.log(response);
         });
     }
-
-    getMajorList();
 });
