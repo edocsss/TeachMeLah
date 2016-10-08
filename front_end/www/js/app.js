@@ -88,6 +88,18 @@ angular.module('TeachMeLah', [
         }
       }
     })
+    .state('tuteeTutorDetails', {
+      url:'/tutor/details/:tutorEmail',
+      templateUrl: 'templates/tutee-tutor-details.html',
+      controller: 'TuteeTutorDetailsController',
+      controllerAs: 'tuteeTutorDetailsController'
+    })
+    .state('tuteeRequestPage', {
+      url: '/request/new/:tutorEmail',
+      templateUrl: 'templates/tutee-new-request.html',
+      controller: 'TuteeNewRequestController',
+      controllerAs: 'tuteeNewRequestController'
+    })
     .state('tuteeHome.requestList', {
       url: '/tutee/requestList',
       views: {

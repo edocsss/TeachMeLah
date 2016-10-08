@@ -59,7 +59,7 @@
             <span
                 class="item item-avatar tutor-list-item"
                 ng-repeat="tutor in tuteeTutorListController.tutorList | filter: tuteeTutorListController.filterTutor"
-                ng-click="goToTutorDetails(tutor.email)"
+                ng-click="tuteeTutorListController.goToTutorDetails(tutor.email)"
                 ng-show="tuteeTutorListController.filteredTutorList.length > 0">
 
                 <img src="{{ tutor.profpicURL }}" class="profile-picture-img">
@@ -79,7 +79,7 @@
 
             <span
                 class="no-tutor-header"
-                ng-show="vm.tutorList.filter(vm.filterTutor).length <= 0">
+                ng-show="tuteeTutorListController.filteredTutorList.length <= 0">
                 <h4>No tutor available!</h4>
             </span>
         </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('TuteeTutorListController', function ($state, $stateParams, $http, URL) {
+angular.module('TeachMeLah').controller('TuteeTutorListController', function ($scope, $state, $stateParams, $http, URL) {
     var vm = this;
     vm.tutorList = [];
     vm.filteredTutorList = [];
@@ -45,7 +45,7 @@ angular.module('TeachMeLah').controller('TuteeTutorListController', function ($s
 
     getTutorListByMajor();
     vm.goToTutorDetails = function (tutorEmail) {
-        $state.go('tutorDetails', {
+        $state.go('tuteeTutorDetails', {
             tutorEmail: tutorEmail
         });
     };
@@ -135,4 +135,8 @@ angular.module('TeachMeLah').controller('TuteeTutorListController', function ($s
     vm.getCurrentFilteredTutorList = function () {
         return vm.tutorList.filter(vm.filterTutor);
     };
+
+    $scope.$watchCollection('tuteeTutorListController.filter', function () {
+        vm.filteredTutorList = vm.tutorList.filter(vm.filterTutor);
+    });
 });

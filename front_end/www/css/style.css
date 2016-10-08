@@ -343,33 +343,43 @@ h1, h2, h3, h4, h5, h6,
 
 
 
-.tour-guide-profile-picture {
+.tutor-profile-picture {
     width: 200px;
     height: auto;
 }
 
-#tour-guide-name {
+#tutor-name {
     margin-bottom: 0;
 }
 
-#tour-guide-tagline {
+#tutor-tagline {
     margin-top: 3px;
+    text-decoration: italic;
 }
 
-#tour-guide-location {
-    margin-top: 0;
+#tutor-major {
     margin-bottom: 0;
 }
 
-#tour-guide-contact {
+#tutor-gpa {
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+#tutor-hourly-rate {
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+
+#tutor-contact {
     margin-top: 3px;
 }
 
-#tour-guide-details-content button {
+#tutor-details-content button {
     width: 100%;
 }
 
-.tour-guide-small-details {
+.tutor-small-details {
     color: #888888 !important;
 }
 
@@ -420,20 +430,21 @@ h2 .idListName{
 
 
 
-.request-booking-tour-guide-profpic {
-    width: 70px;
+.request-booking-tutor-profpic {
+    width: 100px;
     height: auto;
 }
 
-#request-booking-tourguide-name {
+#request-booking-tutor-name {
+    margin-top: 5px;
     margin-bottom: 0;
 }
 
-#request-booking-location-price {
+#request-booking-major-price {
     margin-top: 4px;
 }
 
-.tour-guide-details-row .col.col-67 {
+.tutor-details-row .col.col-67 {
     padding-left: 15px;
 }
 
@@ -489,5 +500,9 @@ h2 .idListName{
 }
 
 #request-details-button-row button {
+    width: 100%;
+}
+
+.request-booking-date-row button {
     width: 100%;
 }

@@ -1,0 +1,81 @@
+<ion-view view-title="New Request">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="request-booking-content">
+        <div class="row row-center row-md-margin-top tutor-details-row">
+            <div class="col col-33 text-right">
+                <img src="{{ tuteeNewRequestController.tutorDetails.profpicURL }}" class="request-booking-tutor-profpic">
+            </div>
+
+            <div class="col col-67 text-left">
+                <h4 id="request-booking-tutor-name">{{ tuteeNewRequestController.tutorDetails.name }}</h4>
+                <h5 id="request-booking-major-price"` class="tutor-small-details">{{ tuteeNewRequestController.tutorDetails.major | capitalizeEachWord }} @ ${{ tuteeNewRequestController.tutorDetails.hourlyRate }} / hour</h5>
+            </div>
+        </div>
+
+        <div class="row row-sm-margin-top request-booking-section-title-row">
+            <div class="col">
+                <h4>Tutor Request Details</h4>
+            </div>
+        </div>
+
+        <div class="row row-center request-booking-date-row">
+            <div class="col col-100">
+                <button class="button button-brand-primary" ion-datetime-picker date monday-first ng-model="tuteeNewRequestController.requestDetails.date">
+                    <span ng-show="!tuteeNewRequestController.requestDetails.date">
+                        <i class="icon ion-ios-calendar-outline"></i>
+                        Date
+                    </span>
+
+                    <span ng-show="tuteeNewRequestController.requestDetails.date">
+                        {{ tuteeNewRequestController.requestDetails.date | date: "d MMMM y" }}
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row row-center request-booking-date-row">
+            <div class="col col-50">
+                <button class="button button-light" ion-datetime-picker time ng-model="tuteeNewRequestController.requestDetails.startTime">
+                    <span ng-show="!tuteeNewRequestController.requestDetails.startTime">
+                        <i class="icon ion-clock"></i>
+                        Start Time
+                    </span>
+
+                    <span ng-show="tuteeNewRequestController.requestDetails.startTime">
+                        {{ tuteeNewRequestController.requestDetails.startTime | date: 'H:mm' }}
+                    </span>
+                </button>
+            </div>
+
+            <div class="col col-50">
+                <button class="button button-light" ion-datetime-picker time ng-model="tuteeNewRequestController.requestDetails.endTime">
+                    <span ng-show="!tuteeNewRequestController.requestDetails.endTime">
+                        <i class="icon ion-clock"></i>
+                        End Time
+                    </span>
+
+                    <span ng-show="tuteeNewRequestController.requestDetails.endTime">
+                        {{ tuteeNewRequestController.requestDetails.endTime | date: 'H:mm' }}
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <div class="row row-center request-booking-total-cost-row">
+            <div class="col col-100">
+                <h4>Total Cost: <span class="normal-font-weight">${{ tuteeNewRequestController.getTotalCost() }}</span></h4>
+            </div>
+        </div>
+
+        <div class="row row-md-margin-top request-booking-section-title-row" id="request-booking-button-row">
+            <div class="col col-offset-10 col-80">
+                <button class="button button-brand-primary" ng-click="createBooking()">
+                    Book!
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

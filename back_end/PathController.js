@@ -41,10 +41,15 @@ module.exports = {
             console.log('Getting tutor list by major...');
             tutorController.getTutorListByMajor(req.body, res);
         })
+
         router.route("/cancelTutor").post(function(req,res){
             console.log("cancelling tutor");
             requestController.cancelTutor(req,res);
         });
 
+        router.route('/tutor/details').post(function (req, res) {
+            console.log('Getting tutor details..');
+            tutorController.getTutorDetails(req.body, res);
+        });
     }
 };

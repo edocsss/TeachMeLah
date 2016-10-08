@@ -1,0 +1,38 @@
+<ion-view view-title="{{ tuteeTutorDetailsController.tutorDetails.name }}">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="tutor-details-content">
+        <div class="row row-center row-md-margin-top" id="tutor-profile-picture-row">
+            <div class="col col-100 text-center">
+                <img src="{{ tuteeTutorDetailsController.tutorDetails.profpicURL }}" class="tutor-profile-picture">
+            </div>
+        </div>
+
+        <div class="row row-center" id="tutor-name-row">
+            <div class="col col-100 text-center">
+                <h3 id="tutor-name">{{ tuteeTutorDetailsController.tutorDetails.name }}</h3>
+                <i><h5 id="tutor-tagline">"{{ tuteeTutorDetailsController.tutorDetails.tagline }}"</h5></i>
+                <h5 id="tutor-major">{{ tuteeTutorDetailsController.tutorDetails.major | capitalizeEachWord }} (GPA: {{ tuteeTutorDetailsController.tutorDetails.gpaCategory | capitalizeEachWord }})</h5>
+                <h5 id="tutor-hourly-rate" class="tutor-small-details">{{ tuteeTutorDetailsController.tutorDetails.contact }} | ${{ tuteeTutorDetailsController.tutorDetails.hourlyRate }} / hour</h5>
+            </div>
+        </div>
+
+        <div class="row row-center" id="tutor-description-row">
+            <div class="col col-offset-10 col-80">
+                <p class="text-justify">
+                    {{ tuteeTutorDetailsController.tutorDetails.description }}
+                </p>
+            </div>
+        </div>
+
+        <div class="row row-center row-md-margin-top" id="tutor-booking-button">
+            <div class="col col-offset-10 col-80 text-center">
+                <button class="button button-brand-primary" ng-click="tuteeTutorDetailsController.goToRequestPage()">
+                    Teach Me!
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

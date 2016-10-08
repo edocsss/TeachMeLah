@@ -4,7 +4,8 @@ var db = mongojs('mydb');
 var Users = db.collection('users');
 
 module.exports = {
-    getTutorListByMajor: getTutorListByMajor
+    getTutorListByMajor: getTutorListByMajor,
+    getTutorDetails: getTutorDetails
 };
 
 function getTutorListByMajor (reqBody, res) {
@@ -17,4 +18,16 @@ function getTutorListByMajor (reqBody, res) {
             tutorList: docs
         });
     });
+}
+
+function getTutorDetails (reqBody, res) {
+    var tutorEmail = reqBody.tutorEmail;
+    Users.findOne({
+        email: tutorEmail
+    }, function (err, doc) {
+        res.status(200);
+        res.json({
+            tutorDetails: doc
+        });
+    })
 }
