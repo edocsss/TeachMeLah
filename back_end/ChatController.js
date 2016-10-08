@@ -21,6 +21,8 @@ function init (io) {
                 email: message,
                 socket: socket
             };
+
+            console.log(clientList);
         });
 
         socket.on('new_message', function (message) {
@@ -34,7 +36,7 @@ function init (io) {
         });
 
         socket.on('disconnect', function () {
-            // removeSocketFromClientList(socket.id);
+            removeSocketFromClientList(socket.id);
             console.log('DISCONNECTED!');
         });
     });
@@ -55,14 +57,20 @@ function sendMessageToTarget(receiver, message) {
 
     for (var socketId in clientList) {
         if (clientList[socketId].email === receiver) {
+            console.log('SENT');
             clientList[socketId].socket.emit('new_message', message);
-            return;
         }
     }
 }
 
 function removeSocketFromClientList (socketId) {
-    delete clientList[socketId];
+    for (var sid in clientList) {
+        if (sid === socketId) {
+            console.log('Deleting');
+            delete clientList[sid];
+            console.log(clientList);
+        }
+    }
 }
 
 function getChatHistory (reqBody, res) {
