@@ -106,13 +106,6 @@ angular.module('TeachMeLah', [
         controller: 'PaymentController',
         controllerAs: 'paymentController'
       })
-      .state('payment', {
-      url: '/payment',
-      templateUrl: 'templates/payment.html',
-      controller: 'PaymentController',
-      controllerAs: 'paymentController'
-    });
-
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');
   });
