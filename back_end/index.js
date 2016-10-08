@@ -9,6 +9,7 @@ var pathController = require("./PathController");
 var accountController = require("./AccountController.js");
 var majorController = require('./MajorController.js');
 var requextController = require('./RequestController');
+var courseController = require('./CourseController.js');
 
 // CORS
 app.use(cors());
@@ -29,3 +30,4 @@ console.log("http server listening on %d", 8000);
 accountController.initDummyData();
 majorController.initDummyData();
 requextController.initDummyData();
+courseController.initDummyData();

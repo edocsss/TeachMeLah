@@ -2,6 +2,8 @@
 var accountController = require("./AccountController");
 var majorController = require('./MajorController.js');
 var requestController = require("./RequestController");
+var courseController = require('./CourseController.js');
+var tutorController = require('./TutorController.js');
 
 module.exports = {
     initPath: function (router) {
@@ -31,5 +33,15 @@ module.exports = {
             var jsonRetrieved = req.body;
             requestController.getListTutor(jsonRetrieved, res);
         });
+
+        router.route('/course').post(function (req, res) {
+            console.log('Getting course list by major...');
+            courseController.getCourseListByMajor(req.body, res);
+        });
+
+        router.route('/tutor').post(function (req, res) {
+            console.log('Getting tutor list by major...');
+            tutorController.getTutorListByMajor(req.body, res);
+        })
     }
 };

@@ -8,7 +8,7 @@
             <span
                 class="item major-list-item"
                 ng-repeat="major in tuteeMajorListController.majorList"
-                ui-sref="">
+                ng-click="tuteeMajorListController.goToCourseList(major.name)">
 
                 <div class="row">
                     <div class="col-10">

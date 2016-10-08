@@ -19,4 +19,10 @@ angular.module('TeachMeLah').controller('TuteeMajorListController', function ($s
     }
 
     getMajorList();
+
+    vm.goToCourseList = function (majorName) {
+        $state.go('tuteeHome.tuteeCourseList', {
+            majorName: majorName
+        });
+    };
 });

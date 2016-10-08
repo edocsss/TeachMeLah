@@ -34,51 +34,70 @@ angular.module('TeachMeLah', [
     // Set up the various states which the app can be in.
     // Each state's controller can be found in controllers.js
     $stateProvider
-
     // setup an abstract state for the tabs directive
-      .state('home', {
-        url: '/',
-        templateUrl: 'templates/home.html',
-        controller: 'HomeController',
-        controllerAs: 'homeController'
-      })
-      .state('login', {
-        url: '/login',
-        templateUrl: 'templates/login.html',
-        controller: 'LoginController',
-        controllerAs: 'loginController'
-      })
-      .state('register', {
-        url: '/register',
-        templateUrl: 'templates/register.html',
-        controller: 'RegisterController',
-        controllerAs: 'registerController'
-      })
-      .state('tuteeHome', {
-        url: '/tutee',
-        templateUrl: 'templates/tutee-home-tabs.html',
-        abstract: true
-      })
-      .state('tuteeHome.tuteeMajorList', {
-        url: '/tutee/majorList',
-        views: {
-          'course-list-tab': {
-            templateUrl: 'templates/tutee-major-list.html',
-            controller: 'TuteeMajorListController',
-            controllerAs: 'tuteeMajorListController'
-          }
+    .state('home', {
+      url: '/',
+      templateUrl: 'templates/home.html',
+      controller: 'HomeController',
+      controllerAs: 'homeController'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginController',
+      controllerAs: 'loginController'
+    })
+    .state('register', {
+      url: '/register',
+      templateUrl: 'templates/register.html',
+      controller: 'RegisterController',
+      controllerAs: 'registerController'
+    })
+    .state('tuteeHome', {
+      url: '/tutee',
+      templateUrl: 'templates/tutee-home-tabs.html',
+      abstract: true
+    })
+    .state('tuteeHome.tuteeMajorList', {
+      url: '/tutee/majorList',
+      views: {
+        'course-list-tab': {
+          templateUrl: 'templates/tutee-major-list.html',
+          controller: 'TuteeMajorListController',
+          controllerAs: 'tuteeMajorListController'
         }
-      })
-      .state('tuteeHome.requestList', {
-        url: '/tutee/requestList',
-        views: {
-          'request-list-tab': {
-            templateUrl: 'templates/tutee-request-list.html',
-            controller: 'TuteeRequestListController',
-            controllerAs: 'tuteeRequestListController'
-          }
+      }
+    })
+    .state('tuteeHome.tuteeCourseList', {
+      url: '/tutee/courseList/:majorName',
+      views: {
+        'course-list-tab': {
+          templateUrl: 'templates/tutee-course-list.html',
+          controller: 'TuteeCourseListController',
+          controllerAs: 'tuteeCourseListController'
         }
-      });
+      }
+    })
+    .state('tuteeHome.tuteeTutorList', {
+      url: '/tutee/tutorList/:majorName/:courseName',
+      views: {
+        'course-list-tab': {
+          templateUrl: 'templates/tutee-tutor-list.html',
+          controller: 'TuteeTutorListController',
+          controllerAs: 'tuteeTutorListController'
+        }
+      }
+    })
+    .state('tuteeHome.requestList', {
+      url: '/tutee/requestList',
+      views: {
+        'request-list-tab': {
+          templateUrl: 'templates/tutee-request-list.html',
+          controller: 'TuteeRequestListController',
+          controllerAs: 'tuteeRequestListController'
+        }
+      }
+    });
 
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');

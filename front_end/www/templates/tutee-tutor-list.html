@@ -1,0 +1,87 @@
+<ion-view view-title="{{ tuteeTutorListController.courseName | capitalizeEachWord }}">
+    <ion-nav-bar class="bar-positive">
+        <ion-nav-back-button></ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-content id="tutor-list-content">
+        <div class="item item-divider">
+            Filters
+        </div>
+
+        <div class="row tutor-filter-row">
+            <div class="col col-33">
+                <h4 ion-datetime-picker date monday-first ng-model="tuteeTutorListController.filter.date" class="tutor-availability-filter">
+                    <span ng-show="!tuteeTutorListController.filter.date">Date</span>
+                    {{ tuteeTutorListController.filter.date | date: "dd-MM-yyyy" }}
+                </h4>
+            </div>
+
+            <div class="col col-33">
+                <h4 ion-datetime-picker time ng-model="tuteeTutorListController.filter.startTime" class="tutor-availability-filter">
+                    <span ng-show="!tuteeTutorListController.filter.startTime">Start Time</span>
+                    {{ tuteeTutorListController.filter.startTime | date: "H:mm" }}
+                </h4>
+            </div>
+
+            <div class="col col-33">
+                <h4 ion-datetime-picker time ng-model="tuteeTutorListController.filter.endTime" class="tutor-availability-filter">
+                    <span ng-show="!tuteeTutorListController.filter.endTime">End Time</span>
+                    {{ tuteeTutorListController.filter.endTime | date: "H:mm" }}
+                </h4>
+            </div>
+        </div>
+
+        <div class="row tutor-price-filter-row">
+            <div class="col col-100">
+                <h4 class="text-center"><span class="normal-font-weight">${{ tuteeTutorListController.filter.hourlyRate }} / hour</span></h4>
+            </div>
+        </div>
+
+        <div class="row row-center">
+            <div class="col col-20 text-right">
+                <h4 class="inline-block">$0</h4>
+            </div>
+
+            <div class="col col-60 range">
+                <input type="range" class="tutor-price-range-filter" ng-model="tuteeTutorListController.filter.hourlyRate" min="0" max="50" value="0"></input>
+            </div>
+
+            <div class="col col-20 text-left">
+                <h4 class="inline-block">$50</h4>
+            </div>
+        </div>
+
+        <div class="item item-divider">
+            Tutors
+        </div>
+
+        <div class="list" id="tutor-list">
+            <span
+                class="item item-avatar tutor-list-item"
+                ng-repeat="tutor in tuteeTutorListController.tutorList | filter: tuteeTutorListController.filterTutor"
+                ng-click="goToTutorDetails(tutor.email)"
+                ng-show="tuteeTutorListController.filteredTutorList.length > 0">
+
+                <img src="{{ tutor.profpicURL }}" class="profile-picture-img">
+                <h2><b>{{ tutor.name }}</b></h2>
+
+                <div class="row">
+                    <div class="col-75">
+                        <p class="tutor-small-details">GPA: {{ tutor.gpaCategory | capitalizeEachWord }}</p>
+                    </div>
+
+                    <div class="col-25">
+                        <p class="tutor-small-details">${{ tutor.hourlyRate }}/hour</p>
+                    </div>
+                </div>
+
+            </span>
+
+            <span
+                class="no-tutor-header"
+                ng-show="vm.tutorList.filter(vm.filterTutor).length <= 0">
+                <h4>No tutor available!</h4>
+            </span>
+        </div>
+    </ion-content>
+</ion-view>

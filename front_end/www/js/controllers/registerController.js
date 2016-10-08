@@ -3,11 +3,11 @@
 angular.module('TeachMeLah').controller('RegisterController', function ($http, URL, $state) {
     var vm = this;
     var profpicURLs = [
-        'images/profile_pictures/1.png',
-        'images/profile_pictures/2.png',
-        'images/profile_pictures/3.png',
-        'images/profile_pictures/4.png',
-        'images/profile_pictures/5.png'
+        'img/profile_pictures/1.png',
+        'img/profile_pictures/2.png',
+        'img/profile_pictures/3.png',
+        'img/profile_pictures/4.png',
+        'img/profile_pictures/5.png'
     ];
 
     function getRandomProfpicURL () {
@@ -45,13 +45,13 @@ angular.module('TeachMeLah').controller('RegisterController', function ($http, U
 
     vm.gpaCategoryList = [
         'please select',
-        'below 2.00',
-        'between 2.00 and 2.50',
-        'between 2.50 and 3.00',
-        'between 3.00 and 3.50',
-        'between 3.50 and 4.00',
-        'between 4.00 and 4.50',
-        'above 4.5'
+        '< 2.00',
+        '2.00 - 2.50',
+        '2.50 - 3.00',
+        '3.00 - 3.50',
+        '3.50 - 4.00',
+        '4.00 - 4.50',
+        '4.50 - 5.00'
     ];
 
     vm.newUser = {
