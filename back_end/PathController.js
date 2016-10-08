@@ -1,6 +1,6 @@
 //define module needed here
 var accountController = require("./AccountController");
-
+var majorController = require('./MajorController.js');
 
 module.exports = {
     initPath : function(router){
@@ -16,5 +16,9 @@ module.exports = {
             accountController.register(jsonRetrieved,res);
         });
 
+        router.route('/major').get(function (req, res) {
+            console.log('Getting major list...');
+            majorController.getMajorList(res);
+        })
     }
 };

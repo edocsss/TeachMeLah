@@ -54,11 +54,18 @@ angular.module('TeachMeLah', [
     controller: 'RegisterController',
     controllerAs: 'registerController'
   })
-  .state('tab', {
-    url: '/',
-    templateUrl: 'templates/tabs.html'
+  .state('tuteeHome', {
+    url: '/tutee',
+    templateUrl: 'templates/tutee-home-tabs.html',
+    abstract: true
+  })
+  .state('tuteeHome.tuteeMajorList', {
+    url: '/tutee/majorList',
+    templateUrl: 'templates/tutee-major-list.html',
+    controller: 'TuteeMajorListController',
+    controllerAs: 'tuteeMajorListController'
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/register');
+  $urlRouterProvider.otherwise('/tutee/majorList');
 });

@@ -53,7 +53,7 @@
                     </div>
 
                     <select ng-model="registerController.newUser.major">
-                        <option value="{{ major.name }}" ng-repeat="major in registerController.majorList">{{ major.name | capitalizeEachWord }}</option>
+                        <option value="{{ major }}" ng-repeat="major in registerController.majorList">{{ major | capitalizeEachWord }}</option>
                     </select>
                 </label>
 
@@ -130,7 +130,7 @@
 
         <div class="row register-section-title-row" id="register-button-row">
             <div class="col col-offset-10 col-80">
-                <button class="button button-brand-primary" ng-click="registerUser()">
+                <button class="button button-brand-primary" ng-click="registerController.registerUser()">
                     Register
                 </button>
             </div>

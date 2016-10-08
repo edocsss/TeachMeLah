@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('LoginController', function ($http, URL) {
+angular.module('TeachMeLah').controller('LoginController', function ($http, URL, $state) {
     var vm = this;
     vm.user = {};
 
@@ -17,7 +17,14 @@ angular.module('TeachMeLah').controller('LoginController', function ($http, URL)
         };
 
         $http(httpOptions).then(function success (response) {
+            var userType = response.data.type;
             localStorage.setItem('userDetails', { email: email });
+
+            if (userType === 'tutor') {
+                $state.go('tutorHome');
+            } else {
+                $state.go('tuteeHome.tuteeMajorList');
+            }
         }, function error (response) {
             console.log(response);
         });

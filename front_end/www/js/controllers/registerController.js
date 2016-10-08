@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('RegisterController', function ($http, URL) {
+angular.module('TeachMeLah').controller('RegisterController', function ($http, URL, $state) {
     var vm = this;
     var profpicURLs = [
         'images/profile_pictures/1.png',
@@ -22,7 +22,10 @@ angular.module('TeachMeLah').controller('RegisterController', function ($http, U
         };
 
         $http(httpOptions).then(function success (response) {
-            vm.majorList = response.data.majorList;
+            vm.majorList = ['please select'];
+            vm.majorList = vm.majorList.concat(response.data.majorList.map(function (majorItem) {
+                return majorItem.name;
+            }));
         }, function error (response) {
             console.log(response);
         });
@@ -52,7 +55,7 @@ angular.module('TeachMeLah').controller('RegisterController', function ($http, U
     ];
 
     vm.newUser = {
-        type: 'tutor',
+        type: 'tutee',
         gpaCategory: 'please select',
         major: 'please select',
         schedule: {
@@ -67,11 +70,29 @@ angular.module('TeachMeLah').controller('RegisterController', function ($http, U
             contact: vm.newUser.phone,
             type: vm.newUser.type,
             profpicURL: getRandomProfpicURL(),
-            tagline: vm.newUser.type === 'tourguide' ? vm.newUser.tagline : null,
-            description: vm.newUser.description === 'tourguide' ? vm.newUser.description : null,
-            location: vm.newUser.type === 'tourguide' ? vm.newUser.location.toLowerCase() : null,
-            price: vm.newUser.type === 'tourguide' ? vm.newUser.price : null,
-            availability: vm.newUser.type === 'tourguide' ? vm.newUser.availability.end : null
+            major: vm.newUser.type === 'tutor' ? vm.newUser.major : null,
+            gpaCategory: vm.newUser.type === 'tutor' ? vm.newUser.gpaCategory : null,
+            tagline: vm.newUser.type === 'tutor' ? vm.newUser.tagline : null,
+            description: vm.newUser.type === 'tutor' ? vm.newUser.description : null,
+            hourlyRate: vm.newUser.type === 'tutor' ? vm.newUser.hourlyRate : null,
+            schedule: vm.newUser.type === 'tutor' ? vm.newUser.schedule : null
         };
+
+        var httpOptions = {
+            method: 'POST',
+            url: URL.REGISTER_URL,
+            data: userProfile
+        }
+
+        $http(httpOptions).then(function success (response) {
+            localStorage.setItem('userDetails', { email: userProfile.email });
+            if (userProfile.type === 'tutor') {
+                $state.go('tutorHome');
+            } else {
+                $state.go('tuteeHome.tuteeMajorList');
+            }
+        }, function error (response) {
+            console.log(response);
+        })
     };
 });

@@ -7,6 +7,7 @@ angular.module('TeachMeLah').constant('URL', (function () {
         BASE_URL: BASE_URL,
         API_URL: API_URL,
         LOGIN_URL: API_URL + '/login',
+        REGISTER_URL: API_URL + '/register',
         MAJOR_LIST_URL: API_URL + '/major'
     };
 })());
