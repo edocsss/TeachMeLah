@@ -7,7 +7,8 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('TeachMeLah', [
   'ionic',
-  'ngWebSocket'
+  'ngWebSocket',
+  'ion-datetime-picker'
 ])
 
 .run(function($ionicPlatform) {

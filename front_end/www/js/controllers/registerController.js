@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('RegisterController', function () {
+angular.module('TeachMeLah').controller('RegisterController', function ($http, URL) {
     var vm = this;
     var profpicURLs = [
         'images/profile_pictures/1.png',
@@ -15,9 +15,49 @@ angular.module('TeachMeLah').controller('RegisterController', function () {
         return profpicURLs[randomIndex];
     }
 
+    function getMajorList () {
+        var httpOptions = {
+            method: 'GET',
+            url: URL.MAJOR_LIST_URL
+        };
+
+        $http(httpOptions).then(function success (response) {
+            vm.majorList = response.data.majorList;
+        }, function error (response) {
+            console.log(response);
+        });
+    }
+
+    getMajorList();
+    vm.dayList = [
+        'please select',
+        'monday',
+        'tuesday',
+        'wednesday',
+        'thursday',
+        'friday',
+        'saturday',
+        'sunday'
+    ];
+
+    vm.gpaCategoryList = [
+        'please select',
+        'below 2.00',
+        'between 2.00 and 2.50',
+        'between 2.50 and 3.00',
+        'between 3.00 and 3.50',
+        'between 3.50 and 4.00',
+        'between 4.00 and 4.50',
+        'above 4.5'
+    ];
+
     vm.newUser = {
         type: 'tutor',
-        availability: {}
+        gpaCategory: 'please select',
+        major: 'please select',
+        schedule: {
+            day: 'please select'
+        }
     };
 
     vm.registerUser = function () {

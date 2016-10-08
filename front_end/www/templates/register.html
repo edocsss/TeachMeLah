@@ -53,7 +53,7 @@
                     </div>
 
                     <select ng-model="registerController.newUser.major">
-                        <option value="{{ major.name }}" ng-repeat="major in majorList">{{ major.name | capitalizeEachWord }}</option>
+                        <option value="{{ major.name }}" ng-repeat="major in registerController.majorList">{{ major.name | capitalizeEachWord }}</option>
                     </select>
                 </label>
 
@@ -63,7 +63,7 @@
                     </div>
 
                     <select ng-model="registerController.newUser.gpaCategory">
-                        <option value="{{ gpaCategory }}" ng-repeat="gpaCategory in gpaCategoryList">{{ gpaCategory }}</option>
+                        <option value="{{ gpaCategory }}" ng-repeat="gpaCategory in registerController.gpaCategoryList">{{ gpaCategory | capitalizeEachWord }}</option>
                     </select>
                 </label>
 
@@ -83,35 +83,45 @@
                 </label>
             </div>
 
-            <div class="row register-section-title-row">
-                <div class="col">
-                    <h5>Weekly Schedule</h5>
-                </div>
+            <div class="item item-divider">
+                Weekly Schedule
+            </div>
+
+            <div class="list register-section-list">
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Day
+                    </div>
+
+                    <select ng-model="registerController.newUser.schedule.day">
+                        <option value="{{ day }}" ng-repeat="day in registerController.dayList">{{ day | capitalizeEachWord }}</option>
+                    </select>
+                </label>
             </div>
 
             <div class="row">
                 <div class="col col-50">
-                    <button class="button button-light" ion-datetime-picker date monday-first ng-model="registerController.newUser.availability.start">
-                        <span ng-show="!registerController.newUser.availability.start">
-                            <i class="icon ion-ios-calendar-outline"></i>
-                            Start Date
+                    <button class="button button-light" ion-datetime-picker time ng-model="registerController.newUser.schedule.start">
+                        <span ng-show="!registerController.newUser.schedule.start">
+                            <i class="icon ion-ios-clock-outline"></i>
+                            &nbsp;&nbsp;Start Time
                         </span>
 
-                        <span ng-show="registerController.newUser.availability.start">
-                            {{ registerController.newUser.availability.start | date: "d MMMM y" }}
+                        <span ng-show="registerController.newUser.schedule.start">
+                            {{ registerController.newUser.schedule.start | date: "H:mm" }}
                         </span>
                     </button>
                 </div>
 
                 <div class="col col-50">
-                    <button class="button button-light" ion-datetime-picker date monday-first ng-model="registerController.newUser.availability.end">
-                        <span ng-show="!registerController.newUser.availability.end">
-                            <i class="icon ion-ios-calendar"></i>
-                            End Date
+                    <button class="button button-light" ion-datetime-picker time ng-model="registerController.newUser.schedule.end">
+                        <span ng-show="!registerController.newUser.schedule.end">
+                            <i class="icon ion-ios-clock"></i>
+                            &nbsp;&nbsp;End Time
                         </span>
 
-                        <span ng-show="registerController.newUser.availability.end">
-                            {{ registerController.newUser.availability.end | date: "d MMMM y" }}
+                        <span ng-show="registerController.newUser.schedule.end">
+                            {{ registerController.newUser.schedule.end | date: "H:mm" }}
                         </span>
                     </button>
                 </div>

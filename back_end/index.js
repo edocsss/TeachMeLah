@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var http = require("http");
 var router = express.Router();              // get an instance of the express Router
 var pathController = require("./PathController");
+var accountController = require("./AccountController.js");
 
 // CORS
 app.use(cors());
@@ -21,3 +22,6 @@ pathController.initPath(router);
 var server = http.createServer(app);
 server.listen({host : 'localhost',port : 8000});
 console.log("http server listening on %d", 8000);
+
+// Dummy data
+accountController.initDummyData();
