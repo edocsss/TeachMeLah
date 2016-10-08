@@ -89,6 +89,15 @@ h1, h2, h3, h4, h5, h6,
     color: #555555;
 }
 
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../fonts/BebasNeue.otf') format("opentype");
+}
+
+.brand-text {
+    font-family: BebasNeue;
+}
+
 
 
 /* UTILITY */
@@ -172,12 +181,16 @@ h1, h2, h3, h4, h5, h6,
     height: 50%;
 }
 
+#home-content {
+    padding-top: 50px;
+}
+
 #row-home-logo .col {
     text-align: center;
 }
 
 .home-logo {
-    width: 200px;
+    width: 250px;
     height: auto;
 }
 
