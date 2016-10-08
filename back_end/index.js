@@ -8,6 +8,7 @@ var router = express.Router();              // get an instance of the express Ro
 var pathController = require("./PathController");
 var accountController = require("./AccountController.js");
 var majorController = require('./MajorController.js');
+var requextController = require('./RequestController');
 
 // CORS
 app.use(cors());
@@ -27,3 +28,4 @@ console.log("http server listening on %d", 8000);
 // Dummy data
 accountController.initDummyData();
 majorController.initDummyData();
+requextController.initDummyData();
