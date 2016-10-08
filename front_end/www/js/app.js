@@ -89,13 +89,13 @@ angular.module('TeachMeLah', [
       }
     })
     .state('tuteeTutorDetails', {
-      url:'/tutor/details/:tutorEmail',
+      url:'/tutor/details/:tutorEmail/:courseName',
       templateUrl: 'templates/tutee-tutor-details.html',
       controller: 'TuteeTutorDetailsController',
       controllerAs: 'tuteeTutorDetailsController'
     })
     .state('tuteeRequestPage', {
-      url: '/request/new/:tutorEmail',
+      url: '/request/new/:tutorEmail/:courseName',
       templateUrl: 'templates/tutee-new-request.html',
       controller: 'TuteeNewRequestController',
       controllerAs: 'tuteeNewRequestController'

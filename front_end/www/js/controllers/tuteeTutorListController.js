@@ -46,7 +46,8 @@ angular.module('TeachMeLah').controller('TuteeTutorListController', function ($s
     getTutorListByMajor();
     vm.goToTutorDetails = function (tutorEmail) {
         $state.go('tuteeTutorDetails', {
-            tutorEmail: tutorEmail
+            tutorEmail: tutorEmail,
+            courseName: $stateParams.courseName
         });
     };
 

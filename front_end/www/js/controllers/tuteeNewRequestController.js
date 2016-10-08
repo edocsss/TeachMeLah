@@ -57,4 +57,30 @@ angular.module('TeachMeLah').controller('TuteeNewRequestController', function ($
             return (diffHour + 1) * vm.tutorDetails.hourlyRate;
         }
     };
+
+    vm.createRequest = function () {
+        var httpOptions = {
+            method: 'POST',
+            url: URL.CREATE_REQUEST_URL,
+            data: {
+                accepted: false,
+                participants: {
+                    emailTutor: vm.tutorDetails.email,
+                    emailTutee: JSON.parse(localStorage.getItem('userDetails')).email
+                },
+                price: vm.getTotalCost(),
+                course: vm.tutorDetails.major,
+                topic: $stateParams.courseName,
+                startTime: vm.requestDetails.startTime,
+                endTime: vm.requestDetails.endTime
+            }
+        };
+
+        $http(httpOptions).then(function success (response) {
+            console.log(response.data);
+            $state.go('tuteeHome.requestList');
+        }, function error (response) {
+            console.log(response);
+        });
+    };
 });

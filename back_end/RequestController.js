@@ -29,7 +29,8 @@ function getListTutor(req,res){
              "course" : "Computer Network",
              "topic" : "wow",
              "startTime" : "Aug 9,2016",
-             "endTime" : "Aug 9, 2016"
+             "endTime" : "Aug 9, 2016",
+             "accepted": false
         }
     * */
     console.log("request from tutee",req);

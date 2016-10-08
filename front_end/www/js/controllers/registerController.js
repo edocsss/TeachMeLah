@@ -85,7 +85,7 @@ angular.module('TeachMeLah').controller('RegisterController', function ($http, U
         }
 
         $http(httpOptions).then(function success (response) {
-            localStorage.setItem('userDetails', { email: userProfile.email });
+            localStorage.setItem('userDetails', JSON.stringify({ email: userProfile.email }));
             if (userProfile.type === 'tutor') {
                 $state.go('tutorHome');
             } else {

@@ -24,7 +24,8 @@ angular.module('TeachMeLah').controller('TuteeTutorDetailsController', function 
     getTutorDetails();
     vm.goToRequestPage = function () {
         $state.go('tuteeRequestPage', {
-            tutorEmail: $stateParams.tutorEmail
+            tutorEmail: $stateParams.tutorEmail,
+            courseName: $stateParams.courseName
         });
     };
 });

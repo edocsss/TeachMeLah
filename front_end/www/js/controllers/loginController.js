@@ -23,7 +23,7 @@ angular.module('TeachMeLah').controller('LoginController', function ($http, URL,
 
         $http(httpOptions).then(function success (response) {
             var userType = response.data.type;
-            localStorage.setItem('userDetails', { email: email });
+            localStorage.setItem('userDetails', JSON.stringify({ email: email }));
 
             if (userType === 'tutor') {
                 $state.go('tutorHome');
