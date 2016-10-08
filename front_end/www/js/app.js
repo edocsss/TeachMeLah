@@ -68,6 +68,15 @@ angular.module('TeachMeLah', [
         controllerAs: 'tuteeMajorListController'
       }
     }
+  })
+  .state('tuteeHome.requestList', {
+    views: {
+      'request-list-tab': {
+        templateUrl: 'templates/tutee-request-list.html',
+        controller: 'TuteeRequestListController',
+        controllerAs: 'tuteeRequestListController'
+      }
+    }
   });
 
   // if none of the above states are matched, use this as the fallback
