@@ -11,10 +11,13 @@ angular.module('TeachMeLah').constant('URL', (function () {
         REGISTER_URL: API_URL + '/register',
         MAJOR_LIST_URL: API_URL + '/major',
         COURSE_LIST_URL: API_URL + '/course',
-        TUTOR_LIST_URL: API_URL + '/tutor',
         TUTOR_DETAILS_URL: API_URL + '/tutor/details',
         REQUEST_LIST_TUTOR_URL: API_URL + '/getListRequestTutor',
         CANCEL_TUTOR: API_URL+"/cancelTutor",
-        CREATE_REQUEST_URL: API_URL + '/addRequest'
+        CREATE_REQUEST_URL: API_URL + '/addRequest',
+      REQUEST_TOKEN: API_URL+"/clientToken",
+      CREATE_TRANSACTION : API_URL+"/createTranasaction"
     };
-})());
+
+
+}));

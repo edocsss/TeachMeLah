@@ -1,3 +1,5 @@
+
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
@@ -8,8 +10,7 @@
 angular.module('TeachMeLah', [
     'ionic',
     'ngWebSocket',
-    'ion-datetime-picker',
-    'ionic.contrib.frostedGlass'
+    'ion-datetime-picker'
   ])
 
   .run(function($ionicPlatform) {
@@ -36,87 +37,83 @@ angular.module('TeachMeLah', [
     // Each state's controller can be found in controllers.js
     $stateProvider
     // setup an abstract state for the tabs directive
-    .state('home', {
-      url: '/',
-      templateUrl: 'templates/home.html',
-      controller: 'HomeController',
-      controllerAs: 'homeController'
-    })
-    .state('login', {
-      url: '/login',
-      templateUrl: 'templates/login.html',
-      controller: 'LoginController',
-      controllerAs: 'loginController'
-    })
-    .state('register', {
-      url: '/register',
-      templateUrl: 'templates/register.html',
-      controller: 'RegisterController',
-      controllerAs: 'registerController'
-    })
-    .state('tuteeHome', {
-      url: '/tutee',
-      templateUrl: 'templates/tutee-home-tabs.html',
-      abstract: true
-    })
-    .state('tuteeHome.tuteeMajorList', {
-      url: '/tutee/majorList',
-      views: {
-        'course-list-tab': {
-          templateUrl: 'templates/tutee-major-list.html',
-          controller: 'TuteeMajorListController',
-          controllerAs: 'tuteeMajorListController'
+      .state('home', {
+        url: '/',
+        templateUrl: 'templates/home.html',
+        controller: 'HomeController',
+        controllerAs: 'homeController'
+      })
+      .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginController',
+        controllerAs: 'loginController'
+      })
+      .state('register', {
+        url: '/register',
+        templateUrl: 'templates/register.html',
+        controller: 'RegisterController',
+        controllerAs: 'registerController'
+      })
+      .state('tuteeHome', {
+        url: '/tutee',
+        templateUrl: 'templates/tutee-home-tabs.html',
+        abstract: true
+      })
+      .state('tuteeHome.tuteeMajorList', {
+        url: '/tutee/majorList',
+        views: {
+          'course-list-tab': {
+            templateUrl: 'templates/tutee-major-list.html',
+            controller: 'TuteeMajorListController',
+            controllerAs: 'tuteeMajorListController'
+          }
         }
-      }
-    })
-    .state('tuteeHome.tuteeCourseList', {
-      url: '/tutee/courseList/:majorName',
-      views: {
-        'course-list-tab': {
-          templateUrl: 'templates/tutee-course-list.html',
-          controller: 'TuteeCourseListController',
-          controllerAs: 'tuteeCourseListController'
+      })
+      .state('tuteeHome.tuteeCourseList', {
+        url: '/tutee/courseList/:majorName',
+        views: {
+          'course-list-tab': {
+            templateUrl: 'templates/tutee-course-list.html',
+            controller: 'TuteeCourseListController',
+            controllerAs: 'tuteeCourseListController'
+          }
         }
-      }
-    })
-    .state('tuteeHome.tuteeTutorList', {
-      url: '/tutee/tutorList/:majorName/:courseName',
-      views: {
-        'course-list-tab': {
-          templateUrl: 'templates/tutee-tutor-list.html',
-          controller: 'TuteeTutorListController',
-          controllerAs: 'tuteeTutorListController'
+      })
+      .state('tuteeHome.tuteeTutorList', {
+        url: '/tutee/tutorList/:majorName/:courseName',
+        views: {
+          'course-list-tab': {
+            templateUrl: 'templates/tutee-tutor-list.html',
+            controller: 'TuteeTutorListController',
+            controllerAs: 'tuteeTutorListController'
+          }
         }
-      }
-    })
-    .state('tuteeTutorDetails', {
-      url:'/tutor/details/:tutorEmail/:courseName',
-      templateUrl: 'templates/tutee-tutor-details.html',
-      controller: 'TuteeTutorDetailsController',
-      controllerAs: 'tuteeTutorDetailsController'
-    })
-    .state('tuteeRequestPage', {
-      url: '/request/new/:tutorEmail/:courseName',
-      templateUrl: 'templates/tutee-new-request.html',
-      controller: 'TuteeNewRequestController',
-      controllerAs: 'tuteeNewRequestController'
-    })
-    .state('tuteeHome.requestList', {
-      url: '/tutee/requestList',
-      views: {
-        'request-list-tab': {
-          templateUrl: 'templates/tutee-request-list.html',
-          controller: 'TuteeRequestListController',
-          controllerAs: 'tuteeRequestListController'
+      })
+      .state('tuteeHome.requestList', {
+        url: '/tutee/requestList',
+        views: {
+          'request-list-tab': {
+            templateUrl: 'templates/tutee-request-list.html',
+            controller: 'TuteeRequestListController',
+            controllerAs: 'tuteeRequestListController'
+          }
         }
-      }
-    })
-    .state('chatRoom', {
-      url: '/chat/:tutorEmail/:tuteeEmail',
-      templateUrl: 'templates/chat-room.html',
-      controller: 'ChatController'
+      })
+      .state('payment', {
+        url: '/payment',
+        templateUrl: 'templates/payment.html',
+        controller: 'PaymentController',
+        controllerAs: 'paymentController'
+      })
+      .state('payment', {
+      url: '/payment',
+      templateUrl: 'templates/payment.html',
+      controller: 'PaymentController',
+      controllerAs: 'paymentController'
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/login');
   });
+

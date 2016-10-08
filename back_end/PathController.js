@@ -4,6 +4,7 @@ var majorController = require('./MajorController.js');
 var requestController = require("./RequestController");
 var courseController = require('./CourseController.js');
 var tutorController = require('./TutorController.js');
+var paypalController = require('./paypalController');
 
 module.exports = {
     initPath: function (router) {
@@ -40,16 +41,23 @@ module.exports = {
         router.route('/tutor').post(function (req, res) {
             console.log('Getting tutor list by major...');
             tutorController.getTutorListByMajor(req.body, res);
-        })
+        });
 
         router.route("/cancelTutor").post(function(req,res){
             console.log("cancelling tutor");
             requestController.cancelTutor(req,res);
         });
-
         router.route('/tutor/details').post(function (req, res) {
             console.log('Getting tutor details..');
             tutorController.getTutorDetails(req.body, res);
         });
-    }
+        router.route("/clientToken").get(function(req,res){
+            paypalController.generateToken(res);
+        });
+
+        router.route("/createTranasaction").post(function(req,res){
+            console.log("nonce from customer",req.body);
+            paypalController.checkoutTransaction(req,res);
+        });
+         }
 };
