@@ -35,11 +35,11 @@ function getListTutor(req,res){
     * */
     console.log("request from tutee",req);
     var emailTutee = req["emailTutee"];
-    Requests.find({"participants.emailTutee" : emailTutee}).toArray(function(err,docs){
-        if(docs.length > 0){
+    Requests.find({"participants.emailTutee" : emailTutee}).toArray(function (err,docs) {
+        if (docs.length > 0) {
             res.status(200);
             res.json(docs);
-        } else{
+        } else {
             res.status(400);
             res.json({"validated":false});
         }
@@ -63,8 +63,12 @@ function getListTutee(req,res){
 
 
 function cancellingTutorFromTutee(req,res){
-    Requests.remove(req);
-    console.log("remove",req+" is removed");
+    var reqBody = req.body;
+    console.log(reqBody);
+    Requests.remove({
+        _id: db.ObjectId(reqBody._id)
+    });
+
     res.status(200);
     res.json({"delete":"OK"});
 }

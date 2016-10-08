@@ -8,40 +8,67 @@
       <div class="item item-divider">
         Accepted
       </div>
+
       <div id="list_bottom_accepted">
-        <ion-list can-swipe=true>
+        <ion-list can-swipe=true ng-show="requestAccepted.length > 0">
           <ion-item ng-repeat="item in requestAccepted" class="item-thumbnail-left">
-            <img ng-src="{{item.img}}">
-            <h2>{{item.participants.emailTutor}}</h2>
-            <p>Price: {{item.price}}</p>
-            <p>Course: {{item.topic}}, Topic: {{item.course}}</p>
+            <img class="tutee-request-list-avatar" ng-src="{{item.img}}">
+            <div class="row tutee-request-list-details">
+              <div class="col col-100">
+                <h2 class="tutee-request-list-tutor-email"><b>{{ item.participants.emailTutor }}</b></h2>
+                <p class="tutee-request-list-total-price">Total Price: ${{ item.price }}</p>
+                <p class="tutee-request-list-major">{{ item.course | capitalizeEachWord }} | {{ item.topic | capitalizeEachWord }}</p>
+                <p class="tutee-request-list-course"></p>
+              </div>
+            </div>
+
             <ion-option-button class="button-assertive" >
               Delete
             </ion-option-button>
-            <!--FINISH MEANS PAY-->
+
             <ion-option-button class="button-positive" ng-click="payTutor(item)">
               Finish
             </ion-option-button>
 
           </ion-item>
         </ion-list>
+
+        <div class="row" style="text-align: center;" ng-show="requestAccepted.length <= 0">
+          <div class="col col-100">
+            <h5>No accepted request!</h5>
+          </div>
+        </div>
       </div>
+
       <div class="item item-divider">
         Pending
       </div>
+
       <div id="list_bottom_pending">
-        <ion-list can-swipe=true >
+        <ion-list can-swipe=true ng-show="requestUnAccepted.length > 0">
           <ion-item ng-repeat="item in requestUnAccepted" class="item-thumbnail-left">
-            <img ng-src="{{item.img}}">
-            <h2>{{item.participants.emailTutor}}</h2>
-            <p>Price: {{item.price}}</p>
-            <p>Course: {{item.topic}}</p>
-            <p>Topic: {{item.course}}</p>
+            <img class="tutee-request-list-avatar" ng-src="{{item.img}}">
+            <div class="row tutee-request-list-details">
+              <div class="col col-100">
+                <h2 class="tutee-request-list-tutor-email"><b>{{ item.participants.emailTutor }}</b></h2>
+                <p class="tutee-request-list-total-price">Total Price: ${{ item.price }}</p>
+                <p class="tutee-request-list-major">{{ item.course | capitalizeEachWord }} | {{ item.topic | capitalizeEachWord }}</p>
+                <p class="tutee-request-list-course"></p>
+              </div>
+            </div>
+
             <ion-option-button class="button-assertive" ng-click="cancellingRequestToTutor(item)">
               Cancel
             </ion-option-button>
+
           </ion-item>
         </ion-list>
+
+        <div class="row" style="text-align: center;" ng-show="requestUnAccepted.length <= 0">
+          <div class="col col-100">
+            <h5>No pending request!</h5>
+          </div>
+        </div>
       </div>
     </div>
   </ion-content>

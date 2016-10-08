@@ -506,3 +506,39 @@ h2 .idListName{
 .request-booking-date-row button {
     width: 100%;
 }
+
+
+
+
+
+.tutee-request-list-details {
+    align-items: center;
+}
+
+.tutee-request-list-tutor-email {
+    margin-bottom: 0 !important;
+}
+
+.tutee-request-list-total-price {
+    margin-bottom: 0 !important;
+}
+
+.tutee-request-list-major {
+    margin-bottom: 0 !important;
+}
+
+.tutee-request-list-course {
+    margin-bottom: 0 !important;
+}
+
+img.tutee-request-list-avatar {
+    width: 80px !important;
+    height: 80px !important;
+}
+
+#tutor-requests-content .item-content {
+    padding-left: 95px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+}
