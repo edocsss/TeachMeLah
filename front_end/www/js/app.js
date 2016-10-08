@@ -103,14 +103,13 @@ angular.module('TeachMeLah', [
             controllerAs: 'tuteeRequestListController'
           }
         }
+      })
       .state('payment', {
         url: '/payment',
         templateUrl: 'templates/payment.html',
         controller: 'PaymentController',
         controllerAs: 'paymentController'
       })
-      }
-    })
     .state('tuteeRequestDetails', {
       url: '/tutee/request/details/:requestId',
       templateUrl: 'templates/tutee-request-details.html',
