@@ -9,6 +9,9 @@ angular.module('TeachMeLah').controller('TutorRequestListController', function (
   function getRequestList() {
     //TUTEE WILL GET LIST OF TUTOR
     //just for testsing
+    $scope.requestList = null;
+    $scope.requestAccepted = [];
+    $scope.requestUnAccepted = [];
     var user = {'email':'sujono@gmail.com'};
     localStorage.setItem('userDetails', JSON.stringify(user));
     var emailUser = JSON.parse(localStorage.getItem("userDetails"));
@@ -65,7 +68,6 @@ angular.module('TeachMeLah').controller('TutorRequestListController', function (
     }, function error (response) {
       console.log(response);
     });
-    deleteBufferFromList(item, $scope.requestUnAccepted);
     getRequestList();
   };
   function deleteBufferFromList(item,arrayPassed){

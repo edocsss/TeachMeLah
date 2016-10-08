@@ -151,7 +151,10 @@ function initDummyData(){
 
 
 function updateRequestData(req,res){
-    Requests.update(req,{$set : {accepted: true}});
-    res.status(200);
-    res.json({"status":"OK"});
+    console.log("update on "+req._id);
+    Requests.update({_id: db.ObjectId(req._id)}, {$set: {accepted: true}}, {multi: false}, function () {
+        // the update is complete
+        res.status(200);
+        res.json({"status":"OK"});
+    });
 }
