@@ -122,18 +122,8 @@ angular.module('TeachMeLah', [
         controller: 'TuteeNewRequestController',
         controllerAs: 'tuteeNewRequestController'
       })
-      .state('tuteeHome.requestList', {
-        url: '/tutee/requestList',
-        views: {
-          'request-list-tab': {
-            templateUrl: 'templates/tutee-request-list.html',
-            controller: 'TuteeRequestListController',
-            controllerAs: 'tuteeRequestListController'
-          }
-        }
-      })
       .state('payment', {
-        url: '/payment',
+        url: '/payment/:price',
         templateUrl: 'templates/payment.html',
         controller: 'PaymentController',
         controllerAs: 'paymentController'
@@ -157,6 +147,6 @@ angular.module('TeachMeLah', [
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('payment');
+    $urlRouterProvider.otherwise('/login');
   });
 

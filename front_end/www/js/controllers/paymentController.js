@@ -81,10 +81,11 @@ angular.module('TeachMeLah').controller('PaymentController', function ($scope,$s
               return;
             }
             console.log("payload nonce",payload.nonce);
+            console.log("price",$stateParams.price);
             httpOptions = {
               method: 'POST',
               url: URL.CREATE_TRANSACTION,
-              data : {"nonce":payload.nonce}
+              data : {"nonce":payload.nonce, "price" : $stateParams.price}
             };
 
             $http(httpOptions).then(function success (response) {

@@ -15,6 +15,7 @@ angular.module('TeachMeLah').controller('TuteeRequestListController', function (
     function getRequestList() {
       //TUTEE WILL GET LIST OF TUTOR
       //just for testsing
+      localStorage.setItem("userDetails",JSON.stringify({"email":"sujono@gmail.com"}));
       var emailUser = JSON.parse(localStorage.getItem("userDetails"));
       var httpOptions = {
         method: 'POST',
@@ -22,7 +23,7 @@ angular.module('TeachMeLah').controller('TuteeRequestListController', function (
         data: {
           emailTutee: emailUser.email
         }
-      }
+      };
       $http(httpOptions).then(function success (response) {
       vm.requestList = response.data;
       console.log("requestList",vm.requestList);
@@ -55,7 +56,9 @@ angular.module('TeachMeLah').controller('TuteeRequestListController', function (
 
   $scope.payTutor = function(item){
     //state go to payment
-    $state.go("payment");
+    $state.go("payment",{
+      price: item.price
+    });
     //then delete it from the list
     deleteFromList(item,$scope.requestAccepted);
   };

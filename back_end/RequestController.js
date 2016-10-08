@@ -93,7 +93,7 @@ function initDummyData(){
                     emailTutor: 'edward@gmail.com',
                     emailTutee: 'sujono@gmail.com'
                 },
-                price: 10,
+                price: 8.88,
                 course : "computer science",
                 topic : "computer networrks",
                 startTime : new Date(2016,11,10,12,30),
@@ -107,7 +107,7 @@ function initDummyData(){
                     emailTutor: 'wow@gmail.com',
                     emailTutee: 'sujono@gmail.com'
                 },
-                price: 10,
+                price: 7.65,
                 course : "computer science",
                 topic : "computer networrks",
                 startTime : new Date(2016,11,10,12,30),
@@ -120,7 +120,7 @@ function initDummyData(){
                     emailTutor: 'sujono@gmail.com',
                     emailTutee: 'edward@gmail.com'
                 },
-                price: 10,
+                price: 9.8,
                 course : "computer science",
                 topic : "computer networrks",
                 startTime : new Date(2016,11,10,12,30),
@@ -134,7 +134,7 @@ function initDummyData(){
                     emailTutor: 'sujono@gmail.com',
                     emailTutee: 'edssss@gmail.com'
                 },
-                price: 10,
+                price: 7.5,
                 course : "computer science",
                 topic : "computer networrks",
                 startTime : new Date(2016,11,10,12,30),
