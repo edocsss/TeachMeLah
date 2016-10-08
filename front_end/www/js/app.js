@@ -54,23 +54,32 @@ angular.module('TeachMeLah', [
         controller: 'RegisterController',
         controllerAs: 'registerController'
       })
-      .state('tutor-requests', {
-        url: '/tutor-requests',
-        templateUrl : 'templates/tutor-requests.html',
-        controller : 'TutorRequestsController',
-        controllerAs : 'tutorRequestsController'
+      .state('tuteeHome', {
+        url: '/tutee',
+        templateUrl: 'templates/tutee-home-tabs.html',
+        abstract: true
       })
       .state('tuteeHome.tuteeMajorList', {
         url: '/tutee/majorList',
-        templateUrl: 'templates/tutee-major-list.html',
-        controller: 'TuteeMajorListController',
-        controllerAs: 'tuteeMajorListController'
+        views: {
+          'course-list-tab': {
+            templateUrl: 'templates/tutee-major-list.html',
+            controller: 'TuteeMajorListController',
+            controllerAs: 'tuteeMajorListController'
+          }
+        }
       })
-      .state('tab', {
-        url: '/',
-        templateUrl: 'templates/tabs.html'
+      .state('tuteeHome.requestList', {
+        url: '/tutee/requestList',
+        views: {
+          'request-list-tab': {
+            templateUrl: 'templates/tutee-request-list.html',
+            controller: 'TuteeRequestListController',
+            controllerAs: 'tuteeRequestListController'
+          }
+        }
       });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/tutor-requests');
+    $urlRouterProvider.otherwise('/login');
   });
