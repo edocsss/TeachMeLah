@@ -33,7 +33,6 @@ function getListTutor(req,res){
              "accepted": false
         }
     * */
-    console.log("request from tutee",req);
     var emailTutee = req["emailTutee"];
     Requests.find({"participants.emailTutee" : emailTutee}).toArray(function (err,docs) {
         if (docs.length > 0) {
@@ -48,7 +47,6 @@ function getListTutor(req,res){
 
 
 function getListTutee(req,res){
-    console.log("reqBody",req);
     var emailTutor = req["emailTutor"];
     Requests.find({"participants.emailTutor" : emailTutor}).toArray(function(err,docs){
         if(docs.length > 0){
@@ -64,7 +62,6 @@ function getListTutee(req,res){
 
 function cancellingTutorFromTutee(req,res){
     var reqBody = req.body;
-    console.log(reqBody);
     Requests.remove({
         _id: db.ObjectId(reqBody._id)
     });
@@ -75,7 +72,6 @@ function cancellingTutorFromTutee(req,res){
 
 function initDummyData(){
     Requests.find({}).toArray(function (err, docs) {
-        console.log(docs);
         if (docs.length <= 0) {
             Requests.insert({
                 participants : {

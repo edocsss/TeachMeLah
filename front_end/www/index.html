@@ -21,6 +21,7 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="lib/angular/angular.js"></script>
+        <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
         <script src="lib/angular-animate/angular-animate.min.js"></script>
         <script src="lib/angular-sanitize/angular-sanitize.min.js"></script>
         <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
@@ -31,6 +32,7 @@
         <script src="lib/ion-datetime-picker/release/ion-datetime-picker.min.js"></script>
         <script src="lib/angular-websocket/dist/angular-websocket.min.js"></script>
         <script src="//code.ionicframework.com/contrib/ionic-contrib-frosted-glass/ionic.contrib.frostedGlass.js"></script>
+        <script src="lib/angular-socket-io/socket.min.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
         <!-- cordova script (this will be a 404 during development) -->
@@ -44,6 +46,10 @@
 
         <!-- FILTERS -->
         <script src="js/filters/capitalizeEachWord.js"></script>
+
+        <!-- FACTORIEIS -->
+        <script src="js/factories/mySocketFactory.js"></script>
+        <script src="js/factories/chatFactory.js"></script>
 
         <!-- CONTROLLERS -->
         <script src="js/controllers/homeController.js"></script>

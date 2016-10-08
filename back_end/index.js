@@ -10,6 +10,7 @@ var accountController = require("./AccountController.js");
 var majorController = require('./MajorController.js');
 var requextController = require('./RequestController');
 var courseController = require('./CourseController.js');
+var chatController = require('./ChatController.js');
 
 // CORS
 app.use(cors());
@@ -25,6 +26,10 @@ pathController.initPath(router);
 var server = http.createServer(app);
 server.listen({host : 'localhost',port : 8000});
 console.log("http server listening on %d", 8000);
+
+// Run Websocket
+var io = require('socket.io')(server);
+chatController.init(io);
 
 // Dummy data
 accountController.initDummyData();

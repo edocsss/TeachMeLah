@@ -5,6 +5,7 @@ var requestController = require("./RequestController");
 var courseController = require('./CourseController.js');
 var tutorController = require('./TutorController.js');
 var paypalController = require('./paypalController');
+var chatController = require('./ChatController.js');
 
 module.exports = {
     initPath: function (router) {
@@ -13,11 +14,13 @@ module.exports = {
             var jsonRetrieved = req.body;
             accountController.signIn(jsonRetrieved, res);
         });
+
         router.route('/register').post(function (req, res) {
             console.log("has registered");
             var jsonRetrieved = req.body;
             accountController.register(jsonRetrieved, res);
         });
+
         router.route('/major').get(function (req, res) {
             console.log('Getting major list...');
             majorController.getMajorList(res);
@@ -33,6 +36,7 @@ module.exports = {
             var jsonRetrieved = req.body;
             requestController.getListTutor(jsonRetrieved, res);
         });
+
         router.route('/course').post(function (req, res) {
             console.log('Getting course list by major...');
             courseController.getCourseListByMajor(req.body, res);
@@ -59,5 +63,10 @@ module.exports = {
             console.log("nonce from customer",req.body);
             paypalController.checkoutTransaction(req,res);
         });
-         }
+
+        router.route('/chat/messages').post(function (req, res) {
+            console.log('Getting message history..');
+            chatController.getChatHistory(req.body, res);
+        });
+    }
 };

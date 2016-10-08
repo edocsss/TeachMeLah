@@ -12,7 +12,6 @@ module.exports = {
 function signIn (req,res){
     var email = req["email"];
     var password = req["password"];
-    console.log(email, password);
 
     Users.find({"email": email, "password": password}).toArray(function (err, docs) {
         console.log(docs.length);
@@ -37,7 +36,6 @@ function register (userData, res){
 
 function initDummyData () {
     Users.find({}).toArray(function (err, docs) {
-        console.log(docs);
         if (docs.length <= 0) {
             Users.insert({
                 email: 'tutee1@teachmelah.com',

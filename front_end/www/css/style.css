@@ -562,17 +562,16 @@ img.tutee-request-list-avatar {
     max-width:50%;
     margin:0 0 1rem 0;
     padding:0;
+    border-radius:.75rem;
 }
 
-.messages li:nth-child(even) {
-    float:right;
+.messages li.received-message {
+    float: right;
+    background: #e74c3c;
+    color: #fff;
 }
 
-.messages li:nth-child(even) img {
-    float:right;
-}
-
-.messages p {
+.messages li p {
     border-radius:.75rem;
     background:#e6e5eb;
     color:#383641;
@@ -581,13 +580,11 @@ img.tutee-request-list-avatar {
     font-size:.875rem;
 }
 
-.messages li:nth-child(even) p {
-    background:#e74c3c;
-    color:#fff;
-}
-
-.messages img {
-    display:block;
-    max-width:65%;
-    border-radius:.75rem;
+.messages li.received-message p {
+    border-radius: .75rem;
+    background: #e74c3c;
+    color: #ffffff;
+    padding: .6875rem;
+    margin: 0;
+    font-size: .875rem;
 }

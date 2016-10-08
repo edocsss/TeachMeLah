@@ -6,6 +6,7 @@
     "ion-datetime-picker": "^0.4.0",
     "moment": "^2.15.1",
     "ngCordova": "^0.1.27-alpha",
-    "angular-websocket": "^2.0.0"
+    "angular-websocket": "^2.0.0",
+    "angular-socket-io": "^0.7.0"
   }
 }

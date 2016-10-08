@@ -9,11 +9,18 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('TeachMeLah', [
     'ionic',
+<<<<<<< 8cbf4130a7bbfb46fa8ebbb96a46b3d9f0ae7db4
     'ngWebSocket',
     'ion-datetime-picker'
+=======
+    // 'ngWebSocket',
+    'btford.socket-io',
+    'ion-datetime-picker',
+    'ionic.contrib.frostedGlass'
+>>>>>>> Chat is working now
   ])
 
-  .run(function($ionicPlatform) {
+  .run(function($ionicPlatform, ChatFactory) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -27,6 +34,8 @@ angular.module('TeachMeLah', [
         StatusBar.styleDefault();
       }
     });
+
+    ChatFactory.init();
   })
 
   .config(function($stateProvider, $urlRouterProvider) {
@@ -99,13 +108,18 @@ angular.module('TeachMeLah', [
             controllerAs: 'tuteeRequestListController'
           }
         }
-      })
       .state('payment', {
         url: '/payment',
         templateUrl: 'templates/payment.html',
         controller: 'PaymentController',
         controllerAs: 'paymentController'
       })
+    .state('chatRoom', {
+      url: '/chat/:senderEmail/:receiverEmail',
+      templateUrl: 'templates/chat-room.html',
+      controller: 'ChatController'
+    });
+
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');
   });

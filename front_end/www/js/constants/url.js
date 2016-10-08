@@ -16,7 +16,8 @@ angular.module('TeachMeLah').constant('URL', (function () {
         CANCEL_TUTOR: API_URL+"/cancelTutor",
         CREATE_REQUEST_URL: API_URL + '/addRequest',
         REQUEST_TOKEN: API_URL+"/clientToken",
-        CREATE_TRANSACTION : API_URL+"/createTranasaction"
+        CREATE_TRANSACTION : API_URL+"/createTranasaction",
+        CHAT_HISTORY_URL: API_URL + '/chat/messages'
     };
 
 

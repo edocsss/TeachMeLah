@@ -4,6 +4,20 @@ angular.module('TeachMeLah').controller('LoginController', function ($http, URL,
     var vm = this;
     vm.user = {};
 
+    vm.goToEdwin = function () {
+        $state.go('chatRoom', {
+            senderEmail: 'edwin.candinegara@gmail.com',
+            receiverEmail: 'edocsss@gmail.com'
+        });
+    };
+
+    vm.goToEdocsss = function () {
+        $state.go('chatRoom', {
+            senderEmail: 'edocsss@gmail.com',
+            receiverEmail: 'edwin.candinegara@gmail.com'
+        });
+    };
+
     vm.loginUser = function () {
         var email = vm.user.email;
         var password = vm.user.password;
