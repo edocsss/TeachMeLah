@@ -99,6 +99,27 @@ angular.module('TeachMeLah', [
         templateUrl: 'templates/tutor-request-list.html',
         controller: 'TutorRequestListController',
         controllerAs: 'tutorRequestListController'
+      .state('tuteeTutorDetails', {
+        url: '/tutor/:tutorEmail/:courseName',
+        templateUrl: '/templates/tutee-tutor-details.html',
+        controller: 'TuteeTutorDetailsController',
+        controllerAs: 'tuteeTutorDetailsController'
+      })
+      .state('tuteeRequestPage', {
+        url: '/request/:tutorEmail/:courseName',
+        templateUrl: '/templates/tutee-new-request.html',
+        controller: 'TuteeNewRequestController',
+        controllerAs: 'tuteeNewRequestController'
+      })
+      .state('tuteeHome.requestList', {
+        url: '/tutee/requestList',
+        views: {
+          'request-list-tab': {
+            templateUrl: 'templates/tutee-request-list.html',
+            controller: 'TuteeRequestListController',
+            controllerAs: 'tuteeRequestListController'
+          }
+        }
       })
       .state('payment', {
         url: '/payment',

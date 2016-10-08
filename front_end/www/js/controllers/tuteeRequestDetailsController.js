@@ -52,7 +52,7 @@ angular.module('TeachMeLah').controller('TuteeRequestDetailsController', functio
         });
     };
 
-    vm.deleteBooking = function () {
+    vm.deleteBooking = function (goBack) {
         var httpOptions = {
             method: 'POST',
             url: URL.CANCEL_TUTOR,
@@ -63,13 +63,14 @@ angular.module('TeachMeLah').controller('TuteeRequestDetailsController', functio
 
         $http(httpOptions).then(function success (response) {
             vm.requestList = response.data;
-            $state.go('tuteeHome.requestList');
+            if (goBack) $state.go('tuteeHome.requestList');
         }, function error (response) {
             console.log(response);
         });
     };
 
     vm.finishBooking = function () {
-
+        $state.go("payment");
+        vm.deleteBooking(false);
     };
 });
