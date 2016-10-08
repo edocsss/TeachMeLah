@@ -4,7 +4,7 @@ var accountController = require("./AccontController");
 
 module.exports = {
     initPath : function(router){
-        router.get('/login', function(req, res) {
+        router.route('/login').post(function(req, res) {
             console.log("has logged in");
             var jsonRetrieved = req.body;
             accountController.signIn(jsonRetrieved,res);

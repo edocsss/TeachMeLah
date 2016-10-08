@@ -6,6 +6,7 @@ var mycollection = db.collection('users');
 
 module.exports = {
     signIn : function(req){
+        var usersData = mycollection.find({});
     },
     register : function(req,res){
         mycollection.insert(req);
