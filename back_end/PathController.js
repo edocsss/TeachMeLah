@@ -1,10 +1,20 @@
-var listJsonReturned = null;
+//define module needed here
+var accountController = require("./AccontController");
 
 
 module.exports = {
     initPath : function(router){
         router.get('/login', function(req, res) {
-
+            console.log("has logged in");
+            var jsonRetrieved = req.body;
+            accountController.signIn(jsonRetrieved,res);
         });
+
+        router.route('/register').post( function(req,res){
+            console.log("has registered");
+            var jsonRetrieved = req.body;
+            accountController.register(jsonRetrieved,res);
+        });
+
     }
 };

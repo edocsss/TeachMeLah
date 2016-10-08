@@ -8,6 +8,8 @@ var pathController = require("./PathController");
 
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use('/api', router);
 pathController.initPath(router);
 var server = http.createServer(app);
