@@ -90,6 +90,8 @@ angular.module('TeachMeLah').controller('PaymentController', function ($scope,$s
 
             $http(httpOptions).then(function success (response) {
               alert("payment succedded");
+              rootScope.teachmelah.refreshTuteeRequestList = true;
+              rootScope.teachmelah.refreshTutorRequestList = true;
               $state.go('tuteeHome.requestList');
             }, function error (response) {
               console.log(response);

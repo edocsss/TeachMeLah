@@ -15,7 +15,7 @@ angular.module('TeachMeLah', [
     'ionic.contrib.frostedGlass'
   ])
 
-  .run(function($ionicPlatform, ChatFactory) {
+  .run(function($ionicPlatform, ChatFactory, $rootScope) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -31,6 +31,10 @@ angular.module('TeachMeLah', [
     });
 
     ChatFactory.init();
+    $rootScope.teachmelah = {
+      refreshTutorRequestList: false,
+      refreshTuteeRequestList: false
+    };
   })
 
   .config(function($stateProvider, $urlRouterProvider) {
@@ -147,6 +151,6 @@ angular.module('TeachMeLah', [
     });
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/login');
+    $urlRouterProvider.otherwise('/');
   });
 

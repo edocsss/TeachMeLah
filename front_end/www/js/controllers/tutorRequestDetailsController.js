@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('TutorRequestDetailsController', function ($state, $stateParams, $http, URL) {
+angular.module('TeachMeLah').controller('TutorRequestDetailsController', function ($state, $stateParams, $http, URL, $rootScope) {
     var vm = this;
     var requestId = $stateParams.requestId;
 
@@ -18,7 +18,6 @@ angular.module('TeachMeLah').controller('TutorRequestDetailsController', functio
         };
 
         $http(httpOptions).then(function success (response) {
-            console.log(response.data);
             var httpOptions = {
                 method: 'POST',
                 url: URL.TUTOR_DETAILS_URL,
@@ -63,7 +62,10 @@ angular.module('TeachMeLah').controller('TutorRequestDetailsController', functio
 
         $http(httpOptions).then(function success (response) {
             vm.requestList = response.data;
-            if (goBack) $state.go('tutorHome');
+            if (goBack) {
+                $state.go('tutorHome');
+                $rootScope.teachmelah.refreshTutorRequestList = true;
+            }
         }, function error (response) {
             console.log(response);
         });
@@ -84,6 +86,7 @@ angular.module('TeachMeLah').controller('TutorRequestDetailsController', functio
           if (response.status == 200) {
             console.log("it is updated");
             $state.go('tutorHome');
+            $rootScope.teachmelah.refreshTutorRequestList = true;
           }
         }, function error (response) {
           console.log(response);

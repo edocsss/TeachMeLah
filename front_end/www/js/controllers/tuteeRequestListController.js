@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('TuteeRequestListController', function ($scope,$state, $http, URL) {
+angular.module('TeachMeLah').controller('TuteeRequestListController', function ($scope,$state, $http, URL, $interval) {
     var vm = this;
     $scope.requestList = null;
     $scope.requestAccepted = [];
@@ -13,9 +13,10 @@ angular.module('TeachMeLah').controller('TuteeRequestListController', function (
     };
 
     function getRequestList() {
-      //TUTEE WILL GET LIST OF TUTOR
-      //just for testsing
-      localStorage.setItem("userDetails",JSON.stringify({"email":"sujono@gmail.com"}));
+      $scope.requestList = null;
+      $scope.requestAccepted = [];
+      $scope.requestUnAccepted = [];
+
       var emailUser = JSON.parse(localStorage.getItem("userDetails"));
       var httpOptions = {
         method: 'POST',
@@ -89,4 +90,10 @@ angular.module('TeachMeLah').controller('TuteeRequestListController', function (
     });
   }
 
+  $interval(function () {
+    if ($rootScope.teachmelah.refreshTuteeRequestList) {
+      getRequestList();
+      $rootScope.teachmelah.refreshTutorRequestList = false;
+    }
+  })
 });

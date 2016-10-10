@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('TutorRequestListController', function ($scope,$state, $http, URL) {
+angular.module('TeachMeLah').controller('TutorRequestListController', function ($scope,$state, $http, URL, $interval, $rootScope) {
   var vm = this;
   $scope.requestList = null;
   $scope.requestAccepted = [];
@@ -13,14 +13,13 @@ angular.module('TeachMeLah').controller('TutorRequestListController', function (
     };
 
   function getRequestList() {
-    //TUTEE WILL GET LIST OF TUTOR
-    //just for testsing
     $scope.requestList = null;
     $scope.requestAccepted = [];
     $scope.requestUnAccepted = [];
 
     var emailUser = JSON.parse(localStorage.getItem("userDetails"));
     console.log(emailUser.email);
+
     var httpOptions = {
       method: 'POST',
       url: URL.REQUEST_LIST_TUTEE_URL,
@@ -28,27 +27,39 @@ angular.module('TeachMeLah').controller('TutorRequestListController', function (
         emailTutor: emailUser.email
       }
     };
+
     $http(httpOptions).then(function success (response) {
       vm.requestList = response.data;
       console.log("requestList",vm.requestList);
-      for(var i = 0 ; i < vm.requestList.length ; i++){
+
+      for (var i = 0 ; i < vm.requestList.length ; i++) {
         var obj = vm.requestList[i];
-        //need to divide the accepted and unaccepted
-        console.log("accepted",obj.accepted);
         var profilePictureSrc = "../../img/profile_pictures/";
-        obj.img = profilePictureSrc+Math.floor(Math.random()*3+2)+".png";
+        obj.img = profilePictureSrc + calculateIdHash(obj._id) + ".png";
+
         if(obj.accepted == false){
           $scope.requestUnAccepted.push(obj);
         }else{
           $scope.requestAccepted.push(obj);
         }
       }
+
       console.log("requestAccepted",$scope.requestAccepted);
       console.log("requestUnAccepted",$scope.requestUnAccepted);
     }, function error (response) {
       console.log(response);
     });
   }
+
+  function calculateIdHash (id) {
+    var counter = 0;
+    for (var i = 0; i < id.length; i++) {
+      counter += id.charCodeAt(i);
+    }
+
+    return (counter % 5) + 1;
+  }
+
   getRequestList();
 
   $scope.cancellingRequestToTutee= function(item){
@@ -113,6 +124,15 @@ angular.module('TeachMeLah').controller('TutorRequestListController', function (
       console.log(response);
     });
   }
+
+
+
+  $interval(function () {
+    if ($rootScope.teachmelah.refreshTutorRequestList) {
+      getRequestList();
+      $rootScope.teachmelah.refreshTutorRequestList = false;
+    }
+  }, 1000);
 });
 
 

@@ -32,7 +32,7 @@ var io = require('socket.io')(server);
 chatController.init(io);
 
 // Dummy data
-accountController.initDummyData();
+// accountController.initDummyData();
 majorController.initDummyData();
-requextController.initDummyData();
+// requextController.initDummyData();
 courseController.initDummyData();

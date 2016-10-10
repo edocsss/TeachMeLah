@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('TeachMeLah').controller('TuteeRequestDetailsController', function ($state, $stateParams, $http, URL) {
+angular.module('TeachMeLah').controller('TuteeRequestDetailsController', function ($state, $stateParams, $http, URL, $rootScope) {
     var vm = this;
     var requestId = $stateParams.requestId;
 
@@ -63,7 +63,10 @@ angular.module('TeachMeLah').controller('TuteeRequestDetailsController', functio
 
         $http(httpOptions).then(function success (response) {
             vm.requestList = response.data;
-            if (goBack) $state.go('tuteeHome.requestList');
+            if (goBack) {
+                $state.go('tuteeHome.requestList');
+                $rootScope.teachmelah.refreshTuteeRequestList = true;
+            }
         }, function error (response) {
             console.log(response);
         });
